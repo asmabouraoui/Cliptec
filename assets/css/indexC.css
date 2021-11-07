@@ -1,0 +1,61 @@
+#logo, #bg-image, #slogan, #circles {
+    pointer-events: none;
+}
+body {
+    background: white;
+    overflow: hidden;
+};
+
+html, body {
+    margin:0%;
+    padding: 0%;
+    min-height: 100%;
+}
+
+#logo
+{
+    position: absolute;
+    width: 25%;
+    top: -10%;
+}
+#menu-btn {
+    position: absolute;
+    width: 5%;
+    right: 10%;
+    top: 11%;
+}
+#menu-btn:hover {
+    background-color: #ff5757;
+}
+#bg-image {
+position: absolute;
+left: 28%;
+width: 45%;
+bottom: -30%;
+filter: saturate(1.5);
+}
+#canva {
+    filter: opacity(0.6);
+}
+#exit {
+    position: absolute;
+    width: 3%;
+    right: 11%;
+    top: 13.5%;
+    z-index: 10001;
+}
+#circles {
+    position: absolute;
+    width: 20%;
+    bottom: -10%;
+    left: -4%;
+    filter: brightness(0);
+}
+#slogan {
+    position: absolute;
+    width: 25%;
+    bottom: -10%;
+    right: 6%;
+    filter: invert(1);
+
+}
