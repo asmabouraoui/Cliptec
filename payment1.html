@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easyrocket</title>
+    <link rel="stylesheet" href="./assets/css/payment.css">
+</head>
+<body onload="register()">
+    <script src="./assets/javascript/script.js"></script>
+    <h3>MEANS OF PAYMENT</h3>
+    
+    <!--<h3 id="under"><a href="./login.html">already has an account?</a></h3>-->
+   
+    <form class="form" action="./payment2.html" method="get">
+        
+            <img src="./assets/images/mastercard.png" style="width: 20%; height: auto;">
+            <img src="./assets/images/visa.png" style="width: 12%; height: auto;">
+        <div id="error"></div>
+        <div id='name'>
+        <label for="numcarte">Card number</label><br>
+        <input type="text" name="numcarte" id="name" placeholder="XXXX XXXX XXXX XXXX">
+        </div>
+        <div id='lastname'>
+            <label for="dateex">Expiration date</label><br>
+            <input type="text" name="dateex" id="lastname" placeholder="MM/YY">
+            </div>
+        <div id='email'>
+                <label for="CVV">CVV</label><br>
+                <input type="text" name="CVV" id="email">
+            </div>
+            <br>
+            <input type="submit" value="Continue shipping">
+            <!--<h3 id="under2"><a href="./payment2.html">Continue shipping</a></h3>-->
+        <!--<input type="submit" value="Continue shipping" href="./payment2.html">-->
+    </form>
+    
+</body>
+</html>

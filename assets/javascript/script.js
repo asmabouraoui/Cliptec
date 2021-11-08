@@ -42,7 +42,7 @@ var rect = document.createElement('div');
     rect.style.left = 0;
     rect.style.background = '#ffffff';
     rect.style.zIndex = 10004;
-    rect.style.transition = '1.2s ease-in-out';
+    rect.style.transition = '0.3s ease-in';
     document.body.append(rect);
 
     // div (rectangle) above 
@@ -144,8 +144,15 @@ function register()
     rectani.style.left = 0;
     rectani.style.background = '#ffffff';
     rectani.style.zIndex = 10004;
-    rectani.style.transition = '1.5s ease-in-out';
-    document.body.append(rectani); 
+    rectani.style.animationName = 'rectup';
+    rectani.style.animationDelay= '0.2s';
+    rectani.style.animationDuration = '0.9s';
+    rectani.style.animationIterationCount ='1';
+    document.body.append(rectani);
+
+    rectani.addEventListener('animationend', () => {
+        document.getElementById('rect').parentNode.removeChild(document.getElementById('rect'));
+    });
 
 
     var rect = document.createElement('div');
@@ -186,9 +193,13 @@ function register()
     moonright.style.right = '7%';
     document.body.append(moonright);
 
-    rectani.addEventListener('mouseover', () => {
+
+
+  //  rectani.style.animationName ='rectup';
+   
+    /* rectani.addEventListener('mouseover', () => {
         rectani.style.height ='0%';
-    }); 
+    });  */
 }
 
 // register page above
@@ -205,11 +216,18 @@ function login()
     rectani.style.height = '100%';
     rectani.style.position = 'absolute';
     rectani.style.top = 0;
-    rectani.style.left = 0;
+    rectani.style.right = 0;
     rectani.style.background = '#ffffff';
     rectani.style.zIndex = 10004;
-    rectani.style.transition = '1.5s ease-in-out';
+    rectani.style.animationName = 'rectup';
+    rectani.style.animationDelay= '0.2s';
+    rectani.style.animationDuration = '1.2s';
+    rectani.style.animationIterationCount ='1';
     document.body.append(rectani); 
+
+    rectani.addEventListener('animationend', () => {
+        document.getElementById('rect').parentNode.removeChild(document.getElementById('rect'));
+    }); 
 
 
     var rect = document.createElement('div');
@@ -259,6 +277,7 @@ function login()
 
 // index visitor below
 
+function indexC() {
 var userprofile = document.createElement('div');
     userprofile.setAttribute('id','profile');
     userprofile.style.width= '60px';
@@ -282,5 +301,6 @@ var notification = document.createElement('img');
     notification.style.right='14%';
     notification.style.top='13.5%';
     document.body.append(notification);
+}
 
 // index visitor above
