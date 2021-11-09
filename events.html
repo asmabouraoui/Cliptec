@@ -5,21 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Easyrocket</title>
-    <link rel="stylesheet" href="./assets/css/indexC.css">
+    <link rel="stylesheet" href="./assets/css/event.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,700;0,900;1,100&display=swap" rel="stylesheet">
 </head>
-<body onload="indexC()">
+<body onload="events()">
     <script src="./assets/javascript/script.js"></script>
         <img id="logo" src="./assets/images/logo white bg.png" alt="easyrocket logo">
 
         <ul class="list">
-            <li><a href="events.html">events</a></li>
+            <li><a href="#" id="selectedtab">events</a></li>
             <li><a href="#">forum</a></li>
             <li><a href="#">shop</a></li>
         </ul>
-
         <div class="container">
             <div class="minicontainer">
                 <div class="box"></div>
@@ -47,8 +46,35 @@
             </div>
         </div>
 
-            <img id="active" src="./assets/images/topeventsrightnow.png" alt="toprn">
+        <div class="container4">
+            <div class="minicontainer">
+                <div class="box"></div>
+                <p id="title">Event 1 title</p>
+                <p id="under">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, temporibus.</p>
+                <button id="btn" type="button"><a href="https://google.com">go to event</a></button>
+            </div>
+        </div>
+
+        <div class="container5">
+            <div class="minicontainer">
+                <div class="box"></div>
+                <p id="title">Event 2 title</p>
+                <p id="under">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, temporibus.</p>
+                <button id="btn" type="button"><a href="https://google.com">go to event</a></button>
+            </div>
+        </div>
+
+        <div class="container6">
+            <div class="minicontainer">
+                <div class="box"></div>
+                <p id="title">Event 3 title</p>
+                <p id="under">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, temporibus.</p>
+                <button id="btn" type="button"><a href="https://google.com">go to event</a></button>
+            </div>
+        </div>
+
+        <img id="active" src="./assets/images/activeevents.png" alt="active events">
+        <img id="upcoming" src="./assets/images/upcomingevents.png" alt="upcoming events">
         <img id ="circles" src="./assets/images/circles.png" alt="circles">
-        <img id="slogan" src="./assets/images/to the moon.png" alt="slogan">
 </body>
 </html>

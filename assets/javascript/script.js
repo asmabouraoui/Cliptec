@@ -145,7 +145,7 @@ function register()
     rectani.style.background = '#ffffff';
     rectani.style.zIndex = 10004;
     rectani.style.animationName = 'rectup';
-    rectani.style.animationDelay= '0.2s';
+    rectani.style.animationDelay= '0.5s';
     rectani.style.animationDuration = '0.9s';
     rectani.style.animationIterationCount ='1';
     document.body.append(rectani);
@@ -220,7 +220,7 @@ function login()
     rectani.style.background = '#ffffff';
     rectani.style.zIndex = 10004;
     rectani.style.animationName = 'rectup';
-    rectani.style.animationDelay= '0.2s';
+    rectani.style.animationDelay= '0.5s';
     rectani.style.animationDuration = '1.2s';
     rectani.style.animationIterationCount ='1';
     document.body.append(rectani); 
@@ -271,6 +271,7 @@ function login()
     rectani.addEventListener('mouseover', () => {
         rectani.style.height ='0%';
     }); 
+
 }
 
 // login page above
@@ -301,6 +302,70 @@ var notification = document.createElement('img');
     notification.style.right='14%';
     notification.style.top='13.5%';
     document.body.append(notification);
+
+    var logo = document.getElementById('logo').addEventListener('click', () => {
+        window.location= './indexC.html';
+    });
 }
 
 // index visitor above
+
+
+// dashboard code below 
+
+function dashboard() {
+
+    var i = 0;
+var leftrect = document.getElementById('leftrect');
+    leftrect.style.background = '#ff5757';
+    leftrect.style.width = '7%';
+    leftrect.style.height ='100%';
+    leftrect.style.position = 'absolute';
+    leftrect.style.top=0;
+    leftrect.style.left=0;
+    leftrect.style.boxShadow = '1px 1px 10px 1px rgba(0,0,255, .2)';
+
+    var toprect = document.getElementById('toprect');
+    toprect.style.background = '#ffffff';
+    toprect.style.width = '100%';
+    toprect.style.height ='13%';
+    toprect.style.position = 'absolute';
+    toprect.style.top=0;
+    toprect.style.left=0;
+    toprect.style.boxShadow = '1px 1px 10px 1px rgba(0,0,255, .2)';
+
+
+}
+
+// dashboard code above 
+
+
+function events() {
+    var userprofile = document.createElement('div');
+        userprofile.setAttribute('id','profile');
+        userprofile.style.width= '60px';
+        userprofile.style.height= '60px';
+        userprofile.style.background='black';
+        userprofile.style.borderRadius='50%';
+        userprofile.style.position='absolute';
+        userprofile.style.right='7%';
+        userprofile.style.top='12.5%';
+        document.body.append(userprofile);
+    
+        userprofile.addEventListener('click', () => {
+            window.location ='./index.html';
+        })
+    
+    var notification = document.createElement('img');
+        notification.setAttribute('id','notification-icon');
+        notification.setAttribute('src','./assets/images/notification-icon.png');
+        notification.style.width='3.5%';
+        notification.style.position='absolute';
+        notification.style.right='14%';
+        notification.style.top='13.5%';
+        document.body.append(notification);
+    
+        var logo = document.getElementById('logo').addEventListener('click', () => {
+            window.location= './indexC.html';
+        });
+    }
