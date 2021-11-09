@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easyrocket</title>
+    <link rel="stylesheet" href="./css/home/register.css">
+</head>
+<body onload="register()">
+    <script src="./js/home/script.js"></script>
+    <h3>Create an account</h3>
+    <h3 id="under"><a href="./login.html">already has an account?</a></h3>
+    <form class="form" action="./login.html" method="get">
+        <div id="error"></div>
+        <div id='name'>
+        <label for="name">YOUR NAME</label><br>
+        <input type="text" name="name" id="name">
+        </div>
+        <div id='lastname'>
+            <label for="lastname">YOUR LASTNAME</label><br>
+            <input type="text" name="lastname" id="lastname">
+            </div>
+            <div id='email'>
+                <label for="email">YOUR E-MAIL</label><br>
+                <input type="text" name="email" id="email">
+                </div>
+                <div id='password'>
+                    <label for="password">YOUR PASSWORD</label><br>
+                    <input type="password" name="password" id="password">
+                    </div>
+                    <div id='repassword'>
+                        <label for="repassword">RE-ENTER YOUR PASSWORD</label><br>
+                        <input type="password" name="repassword" id="repassword">
+                        </div><br>
+                        <input type="submit" value="Create now">
+    </form>
+    
+</body>
+</html>
