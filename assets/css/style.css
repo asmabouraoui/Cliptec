@@ -1,9 +1,10 @@
-#logo, #bg-image, #slogan, #circles {
+#logo, #bg-image, #slogan, #circles, #scroll, #one, #two {
     pointer-events: none;
 }
+
 body {
-    background: black;
-    overflow: hidden;
+    background: black; 
+    overflow-x: hidden;
 };
 
 html, body {
@@ -11,6 +12,7 @@ html, body {
     padding: 0%;
     min-height: 100%;
 }
+
 
 #logo
 {
@@ -28,11 +30,16 @@ html, body {
     background-color: #ff5757;
 }
 #bg-image {
+    z-index: 0;
 position: absolute;
 left: 28%;
 width: 45%;
 bottom: -30%;
 filter: saturate(1.5);
+filter: brightness(1); 
+animation-name: animationbg;
+animation-duration: 5s;
+animation-iteration-count: infinite;
 }
 #canva {
     filter: opacity(0.6);
@@ -57,3 +64,57 @@ filter: saturate(1.5);
     bottom: -10%;
     left: 7%;
 }
+
+@keyframes animationbg {
+    0% { filter: brightness(1);}
+    50% { filter: brightness(2);}
+    100% { filter: brightness(1);}
+}
+
+#scroll {
+    z-index: 1;
+    position: absolute;
+    top: 80%;
+    right: 10%;
+}
+
+#bar {
+    z-index: 10002;
+    position: absolute;
+    top: 100%;
+    left: -2%;
+    width: 102.8%;
+
+}
+
+#one {
+    z-index: 10001;
+    position: absolute;
+    top: 100%;
+    left: 0%;
+    width: 100.1%;
+
+}
+#two {
+    z-index: 10001;
+    position: absolute;
+    top: 199.6%;
+    left: 0%;
+    width: 100.1%;
+
+}
+#three {
+    z-index: 10001;
+    position: absolute;
+    top: 299.2%;
+    left: -0.1%;
+    width: 101%;
+}
+
+
+#pageone {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+}
+

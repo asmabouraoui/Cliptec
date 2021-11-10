@@ -1,4 +1,3 @@
-
 // visitor index page below
 function prompt_menu()
 {
@@ -9,6 +8,7 @@ var width = screen.availWidth;
 var height = screen.availHeight;
 
 document.getElementById('menu-btn').style.display='none';
+
 
 var canvas = document.createElement('canvas'); //Create a canvas element
 canvas.setAttribute('id','canva');
@@ -46,6 +46,12 @@ var rect = document.createElement('div');
     document.body.append(rect);
 
     // div (rectangle) above 
+
+
+    //
+
+
+    //
 
 //login button
 var login = document.createElement('img');
@@ -124,6 +130,7 @@ exitbtn.addEventListener('click',function() {
     document.getElementById('menu-btn').style.pointerEvents='painted';
 
 });
+
 
 
 }
