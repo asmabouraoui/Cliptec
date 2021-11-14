@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+<?php
+include '../../Controllers/Shop/ShopController.php';
+$commandeC = new CommandeC();
+$listeCommandes = $commandeC->affichercommandes();
+?>
 <html lang="en">
 
 <head>
@@ -48,6 +52,29 @@
     <div class = "products">
         <h1>your cart is empty</h1>
     </div>
+	<center>
+        <h1>Liste des commandes</h1>
+    </center>
+	<table border="1" align="center">
+        <tr>
+            <th>Id Commande</th>
+            <th>Nom</th>
+            <th>Prix Commande</th>
+            <th>Date Commande</th>
+        </tr>
+		<?php
+        foreach ($listeCommandes as $commande) {
+        ?>
+            <tr>
+                <td><?php echo $commande['idCommande']; ?></td>
+                <td><?php echo $commande['nomCommande']; ?></td>
+                <td><?php echo $commande['prixCommande']; ?></td>
+                <td><?php echo $commande['dateCommande']; ?></td>
+            </tr>
+        <?php
+        }
+        ?>
+    </table>
 </body>
 
 </html>
