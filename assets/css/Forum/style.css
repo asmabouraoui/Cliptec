@@ -2927,20 +2927,3 @@ a:hover {
 
 
 
-/* 
-my posts */
-
-.tweet-body{
-	width: 82%;
-	margin-left: 60px;
-}
-.tweet-body textarea{
-	overflow:hidden;
-	resize: none;
-	margin-top: 40px;
-	height: 80px;
-	border: 1px solid red;
-	border-radius: 4px;
-	padding: 10px;
-	font-size: 14px;
-}
