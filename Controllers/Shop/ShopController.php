@@ -14,4 +14,36 @@ class CommandeC
             die('Erreur' . $e->getMessage());
         }
     }
+    function supprimercommande($idCommande)
+    {
+        $sql = "DELETE FROM commande WHERE
+            idCommande=:idCommande";
+        $db = config::getConnexion();
+        $req = $db->prepare($sql);
+        $req->bindValue(':idCommande', $idCommande);
+        try {
+            $req->execute();
+        } catch (Exception $e) {
+            die('Erreur:' . $e->getMessage());
+        }
+    }
+    function ajoutercommande($commande)
+    {
+        $sql="INSERT INTO commande (idCommande, nomCommande,
+        prixCommande, dateCommande)
+        VALUES (:idCommande, :nomCommande, :prixCommande, :dateCommande)";
+        $db = config::getConnexion();
+        try{
+            $query = $db->prepare($sql);
+            $query->execute([
+            'idCommande' =>$commande->getId(),
+            'nomCommande' => $commande->getNom(),
+            'prixCommande' => $commande->getPrix(),
+            'dateCommande' => $commande->getDate(),
+            ]);
+            }
+            catch(Exception $e){
+                echo 'Erreur:'.$e->getMessage();
+            }
+    }
 }
