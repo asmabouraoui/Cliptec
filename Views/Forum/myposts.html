@@ -26,6 +26,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
 <script src="./../../assets/javascript/Forum/jquery.easydropdown.js"></script>
 <script src="./../../assets/javascript/Forum/simpleCart.min.js"> </script>
+<html xmlns="http://www.w3.org/1999/xhtml"></html>
+
+    <title>
+       Easyrocket
+    </title>
+    <link rel="stylesheet" href="styles.css"> 
+    <script src="script.js"></script>
+
 </head>
 <body>
 	<div class="men_banner">
@@ -68,5 +76,65 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	    </div>
 	   </div>
    </div>
- 
-   
+<html>
+    <div class="men">
+        <p class="p-myPosts">
+          <a href="Forum.html"><i class="fa fa-pencil-square-o"></i>Back</a>
+        </p>
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+    <table>
+        <tr>
+            <td>
+                <form onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off">
+                   <div>
+                        <label>Topic</label><label class="validation-error hide" id="TopicValidationError">This field is required.</label>
+                        <input type="text" name="Topic" id="Topic">
+                        </div>
+                   
+<!-- <div class="select">
+   <select name="format" id="format">
+    <label><option selected disabled>Choose a topic</option>/label><label class="validation-error hide" id="TopicValidationError">This field is required.</label>
+      <option value="topic 1">topic 1</option>
+      <option value="topic 2">topic 2</option>
+      <option value="topic 3">topic 3</option>
+   </select>
+</div> -->
+
+                    <div>
+                        <label>Description title</label>
+                        <input type="text" name="Descriptiontitle" id="Descriptiontitle">
+                    </div>
+                    <div>
+                        <label>Description content</label>
+                        <input type="text" name="Descriptioncontent" id="Descriptioncontent">
+                    </div>
+                    
+                    <div  class="form-action-buttons">
+                        <input type="submit" value="Submit">
+                    </div>
+                </form>
+            </td>
+            <td>
+                <table class="list" id="employeeList">
+                    <thead>
+                        <tr>
+                            <th>Topic</th>
+                            <th>Description title</th>
+                            <th>Description content</th>
+                            
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <script src="script.js"></script>
+</body>
+
+</html>
