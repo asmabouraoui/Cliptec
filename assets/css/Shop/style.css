@@ -64,6 +64,8 @@ button:hover{
     font-weight: 500;
     font-size: 16px;
     text-decoration: none;
+    margin-top:20px;
+    margin-bottom: 20px;
 }
 .products h1{
     margin-left: auto;
@@ -72,10 +74,15 @@ button:hover{
     margin-bottom: 20px;
 }
 
-.products a{
+.products a {
     color:black;
 }
-
+input {
+    border: none;
+    cursor:pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
 
 .products td{
     text-align: center;
@@ -86,4 +93,7 @@ button:hover{
 }
 .products button:hover{
     background-color: rgb(248, 63, 63);
+}
+.price{
+    font-weight: bold;
 }

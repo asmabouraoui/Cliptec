@@ -73,7 +73,8 @@ if (
                 <td><input type="date" name="date" id="date"></td>
             </tr>
         </table>
-        <input type="submit" value= "submit">
+        <center><input type="submit" value= "submit"></center>
+        
     </form>
 </body>
 

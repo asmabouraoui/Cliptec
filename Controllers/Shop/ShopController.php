@@ -1,6 +1,6 @@
 <?php
-include '../../config.php';
-include '../../Models/Commande.php';
+include_once '../../config.php';
+include_once '../../Models/Commande.php';
 class CommandeC
 {
     function affichercommandes()
@@ -45,5 +45,40 @@ class CommandeC
             catch(Exception $e){
                 echo 'Erreur:'.$e->getMessage();
             }
+    }
+    function recuperercommande($idCommande){
+        $sql="SELECT * from commande where idCommande=$idCommande";
+        $db = config::getConnexion();
+        try{
+            $query=$db->prepare($sql);
+            $query->execute();
+            $commande=$query->fetch();
+            return $commande;
+        }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+    }
+    
+    function modifiercommande($commande, $idCommande){
+        try {
+            $db = config::getConnexion();
+            $query = $db->prepare(
+                'UPDATE commande SET 
+                    nomCommande= :nomCommande, 
+                    prixCommande= :prixCommande, 
+                    dateCommande= :dateCommande
+                WHERE idCommande= :idCommande'
+            );
+            $query->execute([
+                'nomCommande' => $commande->getNom(),
+                'prixCommande' => $commande->getPrix(),
+                'dateCommande' => $commande->getDate(),
+                'idCommande' => $idCommande
+            ]);
+            echo $query->rowCount() . " records UPDATED successfully <br>";
+        } catch (PDOException $e) {
+            $e->getMessage();
+        }
     }
 }

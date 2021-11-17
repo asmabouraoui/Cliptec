@@ -27,28 +27,36 @@ $listeCommandes = $commandeC->affichercommandes();
 				<li><a href="#">Search</a></li>
 			</ul>
 		</nav>
-		<a class = "cta" href="#"><button>Cart</button></a>
+		<a class="cta" href="#"><button>Cart</button></a>
 	</header>
 
 	<div class="products">
-			<h1>Liste des commandes</h1>
-		<table class = "elements">
-			<tr >
+		<h1>Order List</h1>
+		<table class="elements">
+			<tr>
 				<th>Order ID</th>
 				<th>Order Name</th>
 				<th>Order Price</th>
 				<th>Order Date</th>
 				<th>Delete Order</th>
+				<th>Modify Order</th>
 			</tr>
 			<?php
 			foreach ($listeCommandes as $commande) {
 			?>
-				<tr >
+				<tr>
 					<td><?php echo $commande['idCommande']; ?></td>
 					<td><?php echo $commande['nomCommande']; ?></td>
-					<td><?php echo $commande['prixCommande']; ?></td>
+					<td><?php echo $commande['prixCommande']; ?> <span class="price">$</span></td>
 					<td><?php echo $commande['dateCommande']; ?></td>
+					
 					<td><a href="supprimercommande.php?idCommande=<?php echo $commande['idCommande']; ?>">Delete</a></td>
+					<td>
+						<form method="POST" action="modifierCommande.php">
+							<input type="submit" name="Modifier" value="Modify">
+							<input type="hidden" value=<?PHP echo $commande['idCommande']; ?> name="idCommande">
+						</form>
+					</td>
 				</tr>
 			<?php
 			}
