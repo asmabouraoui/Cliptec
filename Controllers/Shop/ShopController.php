@@ -36,7 +36,7 @@ class CommandeC
         try{
             $query = $db->prepare($sql);
             $query->execute([
-            'idCommande' =>$commande->getId(),
+            'idCommande' => $commande->getId(),
             'nomCommande' => $commande->getNom(),
             'prixCommande' => $commande->getPrix(),
             'dateCommande' => $commande->getDate(),

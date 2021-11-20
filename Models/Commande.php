@@ -5,7 +5,7 @@ class Commande{
     private int $prixCommande;
     private string $dateCommande;
     
-    public function __construct(string $idCommande,string $Nom, int $prixCommande,string $dateCommande)
+    public function __construct(int $idCommande ,string $Nom, int $prixCommande,string $dateCommande)
     {
         $this->idCommande = $idCommande;
         $this->Nom = $Nom;
@@ -17,6 +17,7 @@ class Commande{
     {
         $this->idCommande = $id;
     }
+    
     public function getId()
     {
         return $this->idCommande;
