@@ -1,14 +1,14 @@
 <?php
 class Commande{
     private string $idCommande;
-    private string $Nom;
+    private string $Status;
     private int $prixCommande;
     private string $dateCommande;
     
-    public function __construct(int $idCommande ,string $Nom, int $prixCommande,string $dateCommande)
+    public function __construct(int $idCommande ,string $Status, int $prixCommande,string $dateCommande)
     {
         $this->idCommande = $idCommande;
-        $this->Nom = $Nom;
+        $this->Status = $Status;
         $this->prixCommande = $prixCommande;
         $this->dateCommande = $dateCommande;
     }
@@ -23,13 +23,13 @@ class Commande{
         return $this->idCommande;
     }
 
-    public function setNom(string $nom)
+    public function setStatus(string $status)
     {
-        $this->Nom = $nom;
+        $this->Status = $status;
     }
-    public function getNom()
+    public function getStatus()
     {
-        return $this->Nom;
+        return $this->Status;
     }
 
     public function setPrix(int $prix)

@@ -29,15 +29,15 @@ class CommandeC
     }
     function ajoutercommande($commande)
     {
-        $sql="INSERT INTO commande (idCommande, nomCommande,
+        $sql="INSERT INTO commande (idCommande, statusCommande,
         prixCommande, dateCommande)
-        VALUES (:idCommande, :nomCommande, :prixCommande, :dateCommande)";
+        VALUES (:idCommande, :statusCommande, :prixCommande, :dateCommande)";
         $db = config::getConnexion();
         try{
             $query = $db->prepare($sql);
             $query->execute([
             'idCommande' => $commande->getId(),
-            'nomCommande' => $commande->getNom(),
+            'statusCommande' => $commande->getStatus(),
             'prixCommande' => $commande->getPrix(),
             'dateCommande' => $commande->getDate(),
             ]);
@@ -65,13 +65,13 @@ class CommandeC
             $db = config::getConnexion();
             $query = $db->prepare(
                 'UPDATE commande SET 
-                    nomCommande= :nomCommande, 
+                    statusCommande= :statusCommande, 
                     prixCommande= :prixCommande, 
                     dateCommande= :dateCommande
                 WHERE idCommande= :idCommande'
             );
             $query->execute([
-                'nomCommande' => $commande->getNom(),
+                'statusCommande' => $commande->getStatus(),
                 'prixCommande' => $commande->getPrix(),
                 'dateCommande' => $commande->getDate(),
                 'idCommande' => $idCommande
