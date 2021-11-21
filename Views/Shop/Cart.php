@@ -27,7 +27,7 @@ $listeCommandes = $commandeC->affichercommandes();
 				<li><a href="#">Search</a></li>
 			</ul>
 		</nav>
-		<a class="cta" href="#"><button>Cart</button></a>
+		<a class="cta" href="#">Cart</a>
 	</header>
 
 	<div class="products">
@@ -62,9 +62,7 @@ $listeCommandes = $commandeC->affichercommandes();
 			}
 			?>
 		</table>
-		<button>
-			<a href="ajouterCommande.php">Add Order</a>
-		</button>
+		<a class = "add-order" href="ajouterCommande.php">Add Order</a>
 	</div>
 
 </body>
