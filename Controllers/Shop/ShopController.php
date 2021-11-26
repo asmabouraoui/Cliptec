@@ -29,14 +29,13 @@ class CommandeC
     }
     function ajoutercommande($commande)
     {
-        $sql="INSERT INTO commande (idCommande, statusCommande,
+        $sql="INSERT INTO commande (statusCommande,
         prixCommande, dateCommande)
-        VALUES (:idCommande, :statusCommande, :prixCommande, :dateCommande)";
+        VALUES (:statusCommande, :prixCommande, :dateCommande)";
         $db = config::getConnexion();
         try{
             $query = $db->prepare($sql);
             $query->execute([
-            'idCommande' => $commande->getId(),
             'statusCommande' => $commande->getStatus(),
             'prixCommande' => $commande->getPrix(),
             'dateCommande' => $commande->getDate(),

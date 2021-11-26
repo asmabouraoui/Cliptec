@@ -5,19 +5,13 @@ class Commande{
     private int $prixCommande;
     private string $dateCommande;
     
-    public function __construct(int $idCommande ,string $Status, int $prixCommande,string $dateCommande)
+    public function __construct(string $Status, int $prixCommande,string $dateCommande)
     {
-        $this->idCommande = $idCommande;
         $this->Status = $Status;
         $this->prixCommande = $prixCommande;
         $this->dateCommande = $dateCommande;
     }
 
-    public function setId(string $id)
-    {
-        $this->idCommande = $id;
-    }
-    
     public function getId()
     {
         return $this->idCommande;

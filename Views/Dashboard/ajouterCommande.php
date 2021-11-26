@@ -4,19 +4,16 @@ $error = "";
 $commande = null;
 $commandeC = new CommandeC();
 if (
-    isset($_POST['idCommande'])&&
     isset($_POST['status']) &&
     isset($_POST["prix"]) &&
     isset($_POST["date"])
 ) {
     if (
-        !empty($_POST['idCommande'])&&
         !empty($_POST['status']) &&
         !empty($_POST["prix"]) &&
         !empty($_POST["date"])
     ) {
         $commande = new Commande(
-            $_POST['idCommande'],
             $_POST['status'],
             $_POST["prix"],
             $_POST["date"]
@@ -47,7 +44,6 @@ if (
         <?php echo $error ?>
     </div>
     <form method="post" action="">
-        <input name = "idCommande" type="text" class="feedback-input" placeholder="Order ID">
         <select name="status" class="feedback-input" >
             <option value="Pending">Pending</option>
             <option value="Delivered">Delivered</option>

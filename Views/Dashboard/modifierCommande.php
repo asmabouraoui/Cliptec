@@ -10,24 +10,21 @@ $commande = null;
 // create an instance of the controller
 $commandeC = new CommandeC();
 if (
-    isset($_POST["idCommande"]) &&
     isset($_POST["statusCommande"]) &&
     isset($_POST["prixCommande"]) &&
     isset($_POST["dateCommande"])
 ) {
     if (
-        !empty($_POST["idCommande"]) &&
         !empty($_POST['statusCommande']) &&
         !empty($_POST["prixCommande"]) &&
         !empty($_POST["dateCommande"])
     ) {
         $commande = new Commande(
-            $_POST['idCommande'],
             $_POST['statusCommande'],
             $_POST['prixCommande'],
             $_POST['dateCommande']
         );
-        $commandeC->modifiercommande($commande, $_POST["idCommande"]);
+        $commandeC->modifiercommande($commande, $_GET["idCommande"]);
         header('Location:commande.php');
     } else
         $error = "Missing information";
@@ -51,13 +48,12 @@ if (
     </div>
 
     <?php
-    if (isset($_POST['idCommande'])) {
-        $commande = $commandeC->recuperercommande($_POST['idCommande']);
+    if (isset($_GET['idCommande'])) {
+        $commande = $commandeC->recuperercommande($_GET['idCommande']);
     ?>
 
         <form action="" method="POST">
             <table border="1" align="center">
-                <input type="text" class="feedback-input" name="idCommande" id="idCommande" value="<?php echo $commande['idCommande']; ?>" maxlength="20">
                 <select name="statusCommande" class="feedback-input">
                     <option value="Pending">Pending</option>
                     <option value="Delivered">Delivered</option>

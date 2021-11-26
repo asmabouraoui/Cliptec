@@ -37,10 +37,7 @@ $listeCommandes = $commandeC->affichercommandes();
 					
 					<td><a href="supprimercommande.php?idCommande=<?php echo $commande['idCommande']; ?>">Delete</a></td>
 					<td>
-						<form method="POST" action="modifierCommande.php">
-							<input type="submit" name="Modifier" value="Modify">
-							<input type="hidden" value=<?PHP echo $commande['idCommande']; ?> name="idCommande">
-						</form>
+						<a href="modifierCommande.php?idCommande=<?php echo $commande['idCommande']; ?>">Update</a>
 					</td>
 				</tr>
 			<?php
