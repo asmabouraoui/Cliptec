@@ -17,7 +17,8 @@ if (
     if (
         !empty($_POST['statusCommande']) &&
         !empty($_POST["prixCommande"]) &&
-        !empty($_POST["dateCommande"])
+        !empty($_POST["dateCommande"]) &&
+        is_numeric($_POST['prixCommande'])
     ) {
         $commande = new Commande(
             $_POST['statusCommande'],
@@ -26,7 +27,9 @@ if (
         );
         $commandeC->modifiercommande($commande, $_GET["idCommande"]);
         header('Location:commande.php');
-    } else
+    } elseif (!is_numeric($_POST['prixCommande']))
+        $error = "Please enter a valid price";
+    else
         $error = "Missing information";
 }
 ?>
