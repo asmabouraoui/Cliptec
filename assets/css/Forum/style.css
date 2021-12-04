@@ -285,13 +285,14 @@ ul.header_user_info li.user_desc{
 	float: left;
 	margin-top:6px;
 }
-.search-box {
-	position: relative;
-}
-.sb-search {
+/* .search-box {
+	position: absolute;
+	left: 83%;
+} */
+/* .sb-search {
 	position: absolute;
 	top:0px;
-	right:0px;
+	left: 83%;
 	width: 0%;
 	min-width: 30px;
 	height: 28px;
@@ -301,11 +302,11 @@ ul.header_user_info li.user_desc{
 	-moz-transition: width 0.3s;
 	transition: width 0.3s;
 	-webkit-backface-visibility: hidden;
-}
-.sb-search-input {
+} */
+/* .sb-search-input { 
 	position: absolute;
 	top: 0;
-	left: 0px;
+	left: 100%;
 	border: none;
 	outline: none;
 	background:#555;
@@ -316,54 +317,57 @@ ul.header_user_info li.user_desc{
 	padding: 5px 10px;
 	font-size: 13px;
 	color: #ffffff;
-}
-.sb-search-input::-webkit-input-placeholder {
+} */
+/* .sb-search-input::-webkit-input-placeholder {
 	color: #ffffff;
-}
-.sb-search-input:-moz-placeholder {
+} */
+/* .sb-search-input:-moz-placeholder {
 	color: #ffffff;
-}
-.sb-search-input::-moz-placeholder {
+} */
+/* .sb-search-input::-moz-placeholder {
 	color: #efb480;
-}
-.sb-search-input:-ms-input-placeholder {
+} */
+/* .sb-search-input:-ms-input-placeholder {
 	color: #ffffff;
-}
-.sb-icon-search,.sb-search-submit  {
+} */
+/* .sb-icon-search,.sb-search-submit  {
 	width:30px;
 	height:28px;
 	display: block;
 	position: absolute;
-	right: 0;
-	top: 0;
+	left: 0%;
 	padding: 0;
 	margin: 0;
 	line-height: 45px;
 	text-align: center;
 	cursor: pointer;
-}
-.sb-search-submit {
+} */
+/* .sb-search-submit {
 	background: #333 url('../../images/Forum/search.png') no-repeat 0px 1px;
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; /* IE 8 */
-    filter: alpha(opacity=0); /* IE 5-7 */
-  	color: transparent;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; 
+    filter: alpha(opacity=0);  */
+  	/* color: transparent;
 	border: none;
 	outline: none;
 	z-index: -1;
 	-webkit-appearance: none;
-}
-.sb-icon-search {
+} */
+/* .sb-icon-search {
 	color: #FFF;
 	background: #000 url('../../images/Forum/search.png') no-repeat 7px 5px;
 	z-index: 90;
-}
+} */
 /* Open state */
-.sb-search.sb-search-open,.no-js .sb-search {
+/* .sb-search.sb-search-open,.no-js .sb-search {
 	width:100%;
-}
-.sb-search.sb-search-open .sb-search-submit,.no-js .sb-search .sb-search-submit {
+} */
+/* .sb-search.sb-search-open .sb-search-submit,.no-js .sb-search .sb-search-submit {
 	z-index: 90;
-}
+} */
+
+
+
+
 .header_bottom {
 	padding: 2em 0;
 }

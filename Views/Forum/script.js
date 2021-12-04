@@ -13,10 +13,10 @@ function onFormSubmit() {
 
 function readFormData() {
     var formData = {};
-    formData["Topic"] = document.getElementById("Topic").value;
-    formData["Descriptiontitle"] = document.getElementById("Descriptiontitle").value;
-    formData["Descriptioncontent"] = document.getElementById("Descriptioncontent").value;
-   
+    formData["topic"] = document.getElementById("topic").value;
+    formData["questiontitle"] = document.getElementById("questiontitle").value;
+    formData["questioncontent"] = document.getElementById("questioncontent").value;
+    // formData["city"] = document.getElementById("city").value;
     return formData;
 }
 
@@ -24,36 +24,38 @@ function insertNewRecord(data) {
     var table = document.getElementById("employeeList").getElementsByTagName('tbody')[0];
     var newRow = table.insertRow(table.length);
     cell1 = newRow.insertCell(0);
-    cell1.innerHTML = data.Topic;
+    cell1.innerHTML = data.topic;
     cell2 = newRow.insertCell(1);
-    cell2.innerHTML = data.Descriptiontitle;
+    cell2.innerHTML = data.questiontitle;
     cell3 = newRow.insertCell(2);
-    cell3.innerHTML = data.Descriptioncontent;
+    cell3.innerHTML = data.questioncontent;
     cell4 = newRow.insertCell(3);
-
+    // cell4.innerHTML = data.city;
+    cell4 = newRow.insertCell(4);
     cell4.innerHTML = `<a onClick="onEdit(this)">Edit</a>
                        <a onClick="onDelete(this)">Delete</a>`;
 }
 
 function resetForm() {
-    document.getElementById("Topic").value = "";
-    document.getElementById("Descriptiontitle").value = "";
-    document.getElementById("Descriptioncontent").value = "";
-
+    document.getElementById("topic").value = "";
+    document.getElementById("questiontitle").value = "";
+    document.getElementById("questioncontent").value = "";
+    // document.getElementById("city").value = "";
     selectedRow = null;
 }
 
 function onEdit(td) {
     selectedRow = td.parentElement.parentElement;
-    document.getElementById("Topic").value = selectedRow.cells[0].innerHTML;
-    document.getElementById("Descriptiontitle").value = selectedRow.cells[1].innerHTML;
-    document.getElementById("Descriptioncontent").value = selectedRow.cells[2].innerHTML;
+    document.getElementById("topic").value = selectedRow.cells[0].innerHTML;
+    document.getElementById("questiontitle").value = selectedRow.cells[1].innerHTML;
+    document.getElementById("questioncontent").value = selectedRow.cells[2].innerHTML;
+    // document.getElementById("city").value = selectedRow.cells[3].innerHTML;
 }
 function updateRecord(formData) {
-    selectedRow.cells[0].innerHTML = formData.Topic;
-    selectedRow.cells[1].innerHTML = formData.Descriptiontitle;
-    selectedRow.cells[2].innerHTML = formData.Descriptioncontent;
- 
+    selectedRow.cells[0].innerHTML = formData.topic;
+    selectedRow.cells[1].innerHTML = formData.questiontitle;
+    selectedRow.cells[2].innerHTML = formData.questioncontent;
+    // selectedRow.cells[3].innerHTML = formData.city;
 }
 
 function onDelete(td) {
@@ -65,13 +67,13 @@ function onDelete(td) {
 }
 function validate() {
     isValid = true;
-    if (document.getElementById("Topic").value == "") {
+    if (document.getElementById("topic").value == "") {
         isValid = false;
-        document.getElementById("TopicValidationError").classList.remove("hide");
+        document.getElementById("topicValidationError").classList.remove("hide");
     } else {
         isValid = true;
-        if (!document.getElementById("TopicValidationError").classList.contains("hide"))
-            document.getElementById("TopicValidationError").classList.add("hide");
+        if (!document.getElementById("topicValidationError").classList.contains("hide"))
+            document.getElementById("topicValidationError").classList.add("hide");
     }
     return isValid;
 }

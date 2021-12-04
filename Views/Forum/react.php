@@ -1,3 +1,21 @@
+<?php
+include_once('../../Controllers/Forum/questionC.php');
+
+//$user_id = $_SESSION['user']->user_id;  
+
+$id=$_GET['id'];
+$questionC = new QuestionC();
+$listeQuestions = $questionC->afficher_questions($id);
+?>
+<?php
+include_once('../../Controllers/commentC.php');
+
+
+
+$commentC = new commentC();
+$listecomment = $commentC->afficher_comment($id);
+?>
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -71,7 +89,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    </div>
    <div class="men">
     <p class="p-myPosts">
-        <a href="Forum.html"><i class="fa fa-pencil-square-o"></i>Back</a>
+        <a href="Forum.php"><i class="fa fa-pencil-square-o"></i>Back</a>
       </p>
 		<div id="sb-search" class="sb-search forum_search" hidden>
 		   <form>
@@ -86,8 +104,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
        <div class="topic-container">
         <!--Original thread-->
         <div class="head">
+        <?php
+                    foreach ($listeQuestions as $question) {
+                ?>
             <div class="authors">Author</div>
-            <div class="content">Topic: random topic</div>
+            <div class="content"><?php echo $question['topic']; ?>
+</div>
         </div>
 
         <div class="body">
@@ -96,46 +118,58 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <i class="fas fa-user-astronaut center"></i>
                
             </div>
+        
+
             <div class="content">
-                Just a random content of a random topic.
-                <br>To see how it looks like.
+            <?php echo $question['question_content']; ?>
+               
                 <br><br>
-                Nothing more and nothing less.
-                <br>
-                <hr>
-                Regards username
-                <br>
+                <?php echo $question['question_date']; ?>                <br>
                 <div class="comment">
                     <button onclick="showComment()">Comment</button>
                 </div>
             </div>
+            <?php
+                    }
+                    ?>
         </div>
     </div>
-
+   
+    <form action="ajoutercomment.php?id=<?php echo $_GET['id'] ?>" method="post">
     <!--Comment Area-->
     <div class="comment-area hide" id="comment-area">
+        <input type="text" name="username" placeholder="your name..">
         <textarea name="comment" id="" placeholder="comment here ... "></textarea>
         <input type="submit" value="submit">
     </div>
+    </form>
 
     <!--Comments Section-->
+    
+    <?php
+                    foreach ($listecomment as $comment) {
+                ?>
+    <form action="ajouterlike.php?id=<?php echo $comment['comment_id'];?>&idd=<?php echo $_GET['id'];?>&name=<?php echo $comment['user_name'];?>&conn=<?php echo $comment['comment_content'];?>&likee=<?php echo $comment['likee'];?>" method="post">
     <div class="comments-container">
         <div class="body">
             <div class="authors">
-                <div class="username"><a href="">AnotherUser</a></div>
+                <div class="username"><a href=""><?php echo $comment['user_name']; ?></a></div>
                 <i class="fas fa-user-astronaut center"></i>
             </div>
             <div class="content">
-                Just a comment of the above random topic.
-                <br>To see how it looks like.
-                <br><br>
-                Nothing more and nothing less.
-                <br>
+            <?php echo $comment['comment_content']; ?>
+
+            <input type="submit" name="aa" value="Like">
+            <?php echo $comment['likee']; ?>
                 <br>
             </div>
         </div>
     </div>
-    
+    </form>
+    <?php
+                    }
+                    ?>
+                    
 
 <div class="footer">
     <div class="container">
