@@ -2,18 +2,34 @@ body > table{
     width:100%;
 }
 
-table{
-    background-color: #F9D9BE;
+table.table1 {
+    position: absolute;
+    left: 8%;
+    width: 40%;
 }
-table.list{
-    width:100%;
+table.table1 tr {
+  
+}
+table.table1 td {
+ 
 }
 
-td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
+table.table2 {
+    position: absolute;
+    right: 8%;
+    width: 40%; 
+}
+table.table2 tr {
+
+}
+table.table2 td {
+    
+}
+ th {
+   
+    text-align: center;
     padding: 8px;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
 }
 tr:nth-child(even),table.list thead>tr {
     background-color: #dddddd;

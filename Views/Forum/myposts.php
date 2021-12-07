@@ -23,6 +23,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             window.scrollTo(0, 1);
         }
     </script>
+      <link href="./../../assets/css/Forum/styles.css" rel='stylesheet' type='text/css' />
     <link href="./../../assets/css/Forum/bootstrap.css" rel='stylesheet' type='text/css' />
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <!-- Custom Theme files -->
@@ -94,7 +95,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <div class="header_bottom">
                 <div class="logo">
-                    <h1><a href="#">Forum</a></h1>
+                    <!-- <h1><a href="#">Forum</a></h1> -->
                 </div>
                 <div class="menu">
                     <ul class="megamenu skyblue">
@@ -118,7 +119,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         <link rel="stylesheet" href="styles.css">
         <script src="script.js"></script>
-        <table>
+    </div>
+        <table class="table1">
             <tr>
                 <td>
                     <form action="add_question.php" method="post" id="add_question_id">
@@ -139,23 +141,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </div>
                         <label>question title</label>
                         <input type="text" name="questiontitle" id="questiontitle">
-    </div>
-    <div>
+                        <div>
         <label>question content</label>
         <input type="text" name="questioncontent" id="questioncontent">
     </div>
+    <div class="form-action-buttons">
+        <input type="submit" value="Submit">
+    </div>
+                        </form>
+                    </td>
+            </tr>
+        
     <!-- <div>
                       <label>City</label>
                       <input type="text" name="city" id="city">
                   </div> -->
-    <div class="form-action-buttons">
-        <input type="submit" value="Submit">
-    </div>
-    </form>
-    </td>
-    <td>
+                  <table class="table2" id="">
         <!-- <table class="list" id="employeeList"> -->
-        <table class="list" id="">
             <thead>
                 <tr>
                     <th>topic</th>

@@ -74,8 +74,8 @@ $listecomment = $commentC->afficher_all_comment();
             <div class="projects-section-line">
               <div class="projects-status">
                 <div class="item-status">
-                  <span class="status-number">Whatever</span>
-                  <span class="status-type">whatever</span>
+                  <!-- <span class="status-number">Whatever</span>
+                  <span class="status-type">whatever</span> -->
                 </div>
               </div>
               <div class="view-actions">
@@ -99,7 +99,7 @@ $listecomment = $commentC->afficher_all_comment();
               </div>
               <div class="project-box-content-header">
                 <p class="box-content-header">List of questions</p>
-                <p class="box-content-subheader">in case you want to add anything here</p>
+                <!-- <p class="box-content-subheader">in case you want to add anything here</p> -->
               </div>
               <table style="position: relative; left: 50%; transform: translateX(-50%);">
                 <tr>
@@ -125,7 +125,7 @@ $listecomment = $commentC->afficher_all_comment();
 
                 <div class="project-box-content-header">
                 <p class="box-content-header">List of Comments</p>
-                <p class="box-content-subheader">in case you want to add anything here</p>
+                <!-- <p class="box-content-subheader">in case you want to add anything here</p> -->
               </div>
               <table style="position: relative; left: 50%; transform: translateX(-50%);">
                 <tr>
@@ -142,13 +142,12 @@ $listecomment = $commentC->afficher_all_comment();
                 </tr>
                 <?php } ?>
                 </table>
-
-
-
-
             </div>
-            <!--this is the box to work with-->
-          </div>
+
+               <iframe src="StatisticsComment.php" style=" height:400px;width:100%;display:block"></iframe>
+               <iframe src="StatisticsQuestions.php" style=" height:400px;width:100%;display:block"></iframe>
+           
+            <!--this is the box to work with--          </div>
         </div>
       </div>
       </div>

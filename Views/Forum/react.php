@@ -71,7 +71,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	   </div>
    	  <div class="header_bottom">
 	   <div class="logo">
-		  <h1><a href="#">Forum</a></h1>
+		  <!-- <h1><a href="#">Forum</a></h1> -->
 	   </div>
 	   <div class="menu">
 	     <ul class="megamenu skyblue">
