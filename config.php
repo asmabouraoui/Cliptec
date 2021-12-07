@@ -8,7 +8,7 @@ class config
         if (!isset(self::$pdo)) {
             try {
                 self::$pdo = new PDO(
-                    'mysql:host=localhost;dbname=shop',
+                    'mysql:host=localhost;dbname=shoppingcart',
                     'root',
                     'lovekai',
                     [

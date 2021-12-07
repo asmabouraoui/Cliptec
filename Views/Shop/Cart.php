@@ -4,7 +4,9 @@ if (isset($_POST['product_id'], $_POST['quantity']) && is_numeric($_POST['produc
     // Set the post variables so we easily identify them, also make sure they are integer
     $product_id = (int)$_POST['product_id'];
     $quantity = (int)$_POST['quantity'];
-    // Prepare the SQL statement, we basically are checking if the product exists in our databaser
+    $name = $_POST['product_name'];
+    $price = $_POST['product_price'];
+    // Prepare the SQL statement, we basically are checking if the product exists in our database
     $stmt = $pdo->prepare('SELECT * FROM products WHERE id = ?');
     $stmt->execute([$_POST['product_id']]);
     // Fetch the product from the database and return the result as an Array
@@ -14,7 +16,7 @@ if (isset($_POST['product_id'], $_POST['quantity']) && is_numeric($_POST['produc
         // Product exists in database, now we can create/update the session variable for the cart
         if (isset($_SESSION['cart']) && is_array($_SESSION['cart'])) {
             if (array_key_exists($product_id, $_SESSION['cart'])) {
-                // Product exists in cart so just update the quanity
+                // Product exists in cart so just update the quantity
                 $_SESSION['cart'][$product_id] += $quantity;
             } else {
                 // Product is not in cart so add it
@@ -22,7 +24,9 @@ if (isset($_POST['product_id'], $_POST['quantity']) && is_numeric($_POST['produc
             }
         } else {
             // There are no products in cart, this will add the first product to cart
-            $_SESSION['cart'] = array($product_id => $quantity);
+            $_SESSION['cart'] = array(
+                $product_id => $quantity,
+            );
         }
     }
     // Prevent form resubmission...
@@ -64,6 +68,7 @@ if (isset($_POST['placeorder']) && isset($_SESSION['cart']) && !empty($_SESSION[
 // Check the session variable for products in cart
 $products_in_cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : array();
 $products = array();
+
 $subtotal = 0.00;
 // If there are products in cart
 if ($products_in_cart) {
@@ -79,10 +84,11 @@ if ($products_in_cart) {
     foreach ($products as $product) {
         $subtotal += (float)$product['price'] * (int)$products_in_cart[$product['id']];
     }
+    $_SESSION['cart_items'] = $products;
 }
 ?>
 
-<?=template_header('Cart')?>
+<?= template_header('Cart') ?>
 
 <div class="cart content-wrapper">
     <h1>Shopping Cart</h1>
@@ -97,36 +103,36 @@ if ($products_in_cart) {
                 </tr>
             </thead>
             <tbody>
-                <?php if (empty($products)): ?>
-                <tr>
-                    <td colspan="5" style="text-align:center;">You have no products added in your Shopping Cart</td>
-                </tr>
-                <?php else: ?>
-                <?php foreach ($products as $product): ?>
-                <tr>
-                    <td class="img">
-                        <a href="index.php?page=product&id=<?=$product['id']?>">
-                            <img src="imgs/<?=$product['img']?>" width="50" height="50" alt="<?=$product['name']?>">
-                        </a>
-                    </td>
-                    <td>
-                        <a href="index.php?page=product&id=<?=$product['id']?>"><?=$product['name']?></a>
-                        <br>
-                        <a href="index.php?page=cart&remove=<?=$product['id']?>" class="remove">Remove</a>
-                    </td>
-                    <td class="price">&dollar;<?=$product['price']?></td>
-                    <td class="quantity">
-                        <input type="number" name="quantity-<?=$product['id']?>" value="<?=$products_in_cart[$product['id']]?>" min="1" max="<?=$product['quantity']?>" placeholder="Quantity" required>
-                    </td>
-                    <td class="price">&dollar;<?=$product['price'] * $products_in_cart[$product['id']]?></td>
-                </tr>
-                <?php endforeach; ?>
+                <?php if (empty($products)) : ?>
+                    <tr>
+                        <td colspan="5" style="text-align:center;">You have no products added in your Shopping Cart</td>
+                    </tr>
+                <?php else : ?>
+                    <?php foreach ($products as $product) : ?>
+                        <tr>
+                            <td class="img">
+                                <a href="index.php?page=product&id=<?= $product['id'] ?>">
+                                    <img src="imgs/<?= $product['img'] ?>" width="50" height="50" alt="<?= $product['name'] ?>">
+                                </a>
+                            </td>
+                            <td>
+                                <a href="index.php?page=product&id=<?= $product['id'] ?>"><?= $product['name'] ?></a>
+                                <br>
+                                <a href="index.php?page=cart&remove=<?= $product['id'] ?>" class="remove">Remove</a>
+                            </td>
+                            <td class="price">&dollar;<?= $product['price'] ?></td>
+                            <td class="quantity">
+                                <input type="number" name="quantity-<?= $product['id'] ?>" value="<?= $products_in_cart[$product['id']] ?>" min="1" max="<?= $product['quantity'] ?>" placeholder="Quantity" required>
+                            </td>
+                            <td class="price">&dollar;<?= $product['price'] * $products_in_cart[$product['id']] ?></td>
+                        </tr>
+                    <?php endforeach; ?>
                 <?php endif; ?>
             </tbody>
         </table>
         <div class="subtotal">
             <span class="text">Subtotal</span>
-            <span class="price">&dollar;<?=$subtotal?></span>
+            <span class="price">&dollar;<?= $subtotal ?></span>
         </div>
         <div class="buttons">
             <input type="submit" value="Update" name="update">
@@ -135,4 +141,4 @@ if ($products_in_cart) {
     </form>
 </div>
 
-<?=template_footer()?>
+<?= template_footer() ?>

@@ -5,22 +5,22 @@ class CommandeC
 {
     function affichercommandes()
     {
-        $sql = "SELECT * FROM commande";
+        $sql = "SELECT * FROM orders";
         $db = config::getConnexion();
-        try{
+        try {
             $liste = $db->query($sql);
             return $liste;
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             die('Erreur' . $e->getMessage());
         }
     }
-    function supprimercommande($idCommande)
+    function supprimercommande($id)
     {
-        $sql = "DELETE FROM commande WHERE
-            idCommande=:idCommande";
+        $sql = "DELETE FROM orders WHERE
+            id=:id";
         $db = config::getConnexion();
         $req = $db->prepare($sql);
-        $req->bindValue(':idCommande', $idCommande);
+        $req->bindValue(':id', $id);
         try {
             $req->execute();
         } catch (Exception $e) {
@@ -29,51 +29,72 @@ class CommandeC
     }
     function ajoutercommande($commande)
     {
-        $sql="INSERT INTO commande (statusCommande,
-        prixCommande, dateCommande)
-        VALUES (:statusCommande, :prixCommande, :dateCommande)";
+        $sql = "INSERT INTO orders (first_name,last_name,email,address,address2,country,state,zipcode,total_price,order_status
+        )
+        VALUES (:first_name,:last_name,:email,:address,:address2,:country,:state,:zipcode,:total_price,:order_status)";
         $db = config::getConnexion();
-        try{
+        try {
             $query = $db->prepare($sql);
             $query->execute([
-            'statusCommande' => $commande->getStatus(),
-            'prixCommande' => $commande->getPrix(),
-            'dateCommande' => $commande->getDate(),
+                'first_name' => $commande->getFirst(),
+                'last_name' => $commande->getLast(),
+                'email' => $commande ->getEmail(),
+                'address'=> $commande ->getAdress(),
+                'address2' => $commande->getAdress2(),
+                'country' => $commande ->getCountry(),
+                'state' => $commande ->getState(),
+                'zipcode' =>$commande ->getZip(),
+                'total_price' => $commande ->getPrice(),
+                'order_status' =>$commande->getStatus()
             ]);
-            }
-            catch(Exception $e){
-                echo 'Erreur:'.$e->getMessage();
-            }
+        } catch (Exception $e) {
+            echo 'Erreur:' . $e->getMessage();
+        }
     }
-    function recuperercommande($idCommande){
-        $sql="SELECT * from commande where idCommande=$idCommande";
+    function recuperercommande($idCommande)
+    {
+        $sql = "SELECT * from commande where idCommande=$idCommande";
         $db = config::getConnexion();
-        try{
-            $query=$db->prepare($sql);
+        try {
+            $query = $db->prepare($sql);
             $query->execute();
-            $commande=$query->fetch();
+            $commande = $query->fetch();
             return $commande;
-        }
-        catch (Exception $e){
-            die('Erreur: '.$e->getMessage());
+        } catch (Exception $e) {
+            die('Erreur: ' . $e->getMessage());
         }
     }
-    
-    function modifiercommande($commande, $idCommande){
+
+    function modifiercommande($commande, $id)
+    {
         try {
             $db = config::getConnexion();
             $query = $db->prepare(
                 'UPDATE commande SET 
-                    statusCommande= :statusCommande, 
-                    prixCommande= :prixCommande, 
-                    dateCommande= :dateCommande
-                WHERE idCommande= :idCommande'
+                    first_ame= :firstName, 
+                    last_name= :lastName, 
+                    email= :email,
+                    address=:address,
+                    address2=:address2,
+                    country =:country,
+                    state =:state,
+                    zipcode =:zipcode,
+                    total_price=:total_price,
+                    order_status=:order_status
+                WHERE id= :id'
             );
             $query->execute([
-                'statusCommande' => $commande->getStatus(),
-                'prixCommande' => $commande->getPrix(),
-                'dateCommande' => $commande->getDate(),
-                'idCommande' => $idCommande
+                'first_name' => $commande->getFirst(),
+                'last_name' => $commande->getLast(),
+                'email' => $commande ->getEmail(),
+                'address'=> $commande ->getAdress(),
+                'address2' => $commande->getAdress2(),
+                'country' => $commande ->getCountry(),
+                'state' => $commande ->getState(),
+                'zipcode' =>$commande ->getZip(),
+                'total_price' => $commande ->getPrice(),
+                'order_status' =>$commande ->getStatus(),
+				'id' => $id
             ]);
             echo $query->rowCount() . " records UPDATED successfully <br>";
         } catch (PDOException $e) {
