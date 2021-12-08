@@ -81,9 +81,9 @@ $_SESSION['CIN'] = $cin;
     <header>
         <img src="../../assets/images/logo black bg-trimmy.png" alt="" srcset="">
         <ul>
-            <a class="list" href="#"><li>Forum</li></a>
+            <a class="list" href="../Forum/Forum.php"><li>Forum</li></a>
             <a class="list" href="#"><li>Events</li></a>
-            <a class="list" href="#"><li>Shop</li></a>
+            <a class="list" href="../Shop/shop.html"><li>Shop</li></a>
             <?php 
                 if ($user['Role']=='Admin')
                     echo '<a class="list" href="../Dashboard/dashboard-main.php"><li>Dashboard</li></a>';
