@@ -1,59 +1,75 @@
-#logo, #bg-image, #slogan, #circles {
+html, body {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+	 display: flex;
+	 flex-direction: column;
+     max-width: 1800px;
+}
+
+.container img {
+    width: 100%;
+    margin: -0.21px;
     pointer-events: none;
 }
-body {
-    background: black;
-    overflow: hidden;
-};
 
-html, body {
-    margin:0%;
-    padding: 0%;
-    min-height: 100%;
+
+#clicklogin {
+    width: 4%;
+    height: 4%;
+    position: absolute;
+    top: 11.3%;
+    left: 75.9%;
+}
+#clicklogin:hover {
+    width: 4%;
+    border-bottom: 3px solid #000000;
+}
+#clickregister {
+    width: 11%;
+    height: 4%;
+    position: absolute;
+    top: 11.3%;
+    left: 82.9%;
+}
+#clickregister:hover {
+    border-bottom: 3px solid #000000;
 }
 
-#logo
-{
+#clickrect {
+    width: 30%;
+    height: 30%;
     position: absolute;
-    width: 25%;
-    top: -10%;
+    top: 336%;
+    left: 61.5%;
 }
-#menu-btn {
-    position: absolute;
-    width: 5%;
-    right: 10%;
-    top: 11%;
+#clickrect:hover {
+    border: 5px solid black;
 }
-#menu-btn:hover {
-    background-color: #ff5757;
+
+.toregister {
+    pointer-events: none;  
 }
-#bg-image {
-position: absolute;
-left: 28%;
-width: 45%;
-bottom: -30%;
-filter: saturate(1.5);
-}
-#canva {
-    filter: opacity(0.6);
-}
-#exit {
-    position: absolute;
-    width: 3%;
-    right: 11%;
-    top: 13.5%;
-    z-index: 10001;
-}
-#circles {
-    position: absolute;
-    width: 20%;
-    bottom: -10%;
-    left: -4%;
-    filter: opacity(35%);
-}
-#slogan {
-    position: absolute;
-    width: 25%;
-    bottom: -10%;
-    left: 7%;
+
+@media only screen and (max-width: 1300px) {
+    .container img {
+    pointer-events: auto;
+    }
+    .toregister {
+        pointer-events: auto;
+    }
+    #clickrect {
+        display: none;
+    }
 }
