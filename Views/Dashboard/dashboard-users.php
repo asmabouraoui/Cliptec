@@ -1,5 +1,6 @@
 <?php
-include_once './Controller/ClientC.php';
+    include_once '../../Models\Client.php';
+    include_once '../../Controllers/Profile/ClientC.php';
 session_start();
 $ClientC=new ClientC();
 
@@ -24,11 +25,16 @@ $ClientList= $ClientC->showExistingUsers();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard users</title>
+    <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
     rel="stylesheet">
-    <link rel="stylesheet" href="./assets/css/dashboard-users.css">
+    <link rel="stylesheet" href="../../assets/css/Dashboard/dashboard-users.css">
 </head>
 <body onload="test()">
+<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
     <script src="./assets/javascript/script.js"></script>
     <div class="app-container">
         <div class="app-header">
@@ -62,7 +68,7 @@ $ClientList= $ClientC->showExistingUsers();
             <a href="./dashboard-events.html" class="app-sidebar-link">
                 <span class="material-icons">confirmation_number</span>
             </a><br><br><br><br><br><br><br><br><br><br><br>
-            <a href="./indexC.php" class="app-sidebar-link">
+            <a href="../Index/indexC.php" class="app-sidebar-link">
                 <span class="material-icons">keyboard_return</span>
             </a>
           </div>
@@ -76,6 +82,22 @@ $ClientList= $ClientC->showExistingUsers();
                 <div class="item-status">
                   <span class="status-number"><?php echo $ClientList->rowCount();?></span>
                   <span class="status-type">Total users</span>
+                </div>
+                <div class="item-status">
+                  <span class="status-number client">0</span>
+                  <span class="status-type">Client(s)</span>
+                </div>
+                <div class="item-status">
+                  <span class="status-number transporter">0</span>
+                  <span class="status-type">Transporter(s)</span>
+                </div>
+                <div class="item-status">
+                  <span class="status-number admin">0</span>
+                  <span class="status-type">Admin(s)</span>
+                </div>
+                <div class="item-status">
+                  <span class="status-number online">0</span>
+                  <span class="status-type">User(s) online</span>
                 </div>
               </div>
               <div class="view-actions">
@@ -117,13 +139,24 @@ $ClientList= $ClientC->showExistingUsers();
                 <th>Phone</th>
                 <th>Date of creation</th>
                 <th>Role</th>
+                <th>Online</th>
                 <th>Grant Admin</th>
                 <th>Revoke Admin</th>
                 <th>Delete</th>
                 </tr>';
               ?>
                   <?php
+                  $transporters=0;
+                  $admins=0;
+                  $online=0;
+                  $total = $ClientList->rowCount();
                   foreach($ClientList as $client){
+                      if ($client['Role']=='Transporter')
+                        $transporters++;
+                        else if ($client['Role']=='Admin')
+                        $admins++;
+                        if ($client['Online']=='Yes')
+                          $online++;
                   ?>
                   <tr>
                   <td><?php echo $client['CIN']; ?></td>
@@ -148,6 +181,7 @@ $ClientList= $ClientC->showExistingUsers();
                   ?>
                   <td><?php echo $client['Dateofcreation']; ?></td>
                   <td><?php echo $client['Role']; ?></td>
+                  <td><?php echo $client['Online']; ?></td>
                   <?php if ($client['Role']=='Admin') {
                         echo ('<td><b>Granted</b></td>');
                         echo ('<td><a href="revokeAdmin.php?CIN='.$client['CIN'].'"><span class="material-icons-outlined">remove_circle</span></a></td>');
@@ -164,6 +198,7 @@ $ClientList= $ClientC->showExistingUsers();
                   ?>
                 </table>
             </div>
+            <script> $(".transporter").html(<?php echo $transporters?>); $(".admin").html(<?php echo $admins?>); $(".client").html(<?php echo ($total-($transporters+$admins));?>); $(".online").html(<?php echo $online; ?>);</script>
             <!--this is the box to work with-->
           </div>
         </div>
