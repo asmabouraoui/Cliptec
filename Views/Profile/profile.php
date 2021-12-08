@@ -50,9 +50,9 @@ $client = null;
         <header>
             <img id="easyrocket" src="../../assets/images/logo black bg-trimmy.png" alt="" srcset="" onclick="goToIndexC()">
         <ul>
-            <a class="list" href="#"><li>Forum</li></a>
+        <a class="list" href="../Forum/Forum.php"><li>Forum</li></a>
             <a class="list" href="#"><li>Events</li></a>
-            <a class="list" href="#"><li>Shop</li></a>
+            <a class="list" href="../Shop/shop.html"><li>Shop</li></a>
             <?php 
                 if ($user2['Role']=='Admin')
                     echo '<a class="list" href="dashboard-main.php"><li>Dashboard</li></a>';
