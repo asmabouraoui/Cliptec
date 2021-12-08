@@ -52,15 +52,14 @@ $listeCommandes = $commandeC->affichercommandes();
 					<td><?php echo $commande['order_status']; ?></td>
 					
 					<td><a href="supprimercommande.php?idCommande=<?php echo $commande['id']; ?>">Delete</a></td>
-					<td>
+					<!--<td>
 						<a href="modifierCommande.php?idCommande=<?php echo $commande['id']; ?>">Update</a>
-					</td>
+					</td>-->
 				</tr>
 			<?php
 			}
 			?>
 		</table>
-		<a class = "add-order" href="ajouterCommande.php">Add Order</a>
 	</div>
 
 </body>
