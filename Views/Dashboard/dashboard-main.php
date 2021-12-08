@@ -1,5 +1,5 @@
 <?php
-include_once './Controller/ClientC.php';
+include_once '../../Controllers/Profile/ClientC.php';
 session_start();
 
 $ClientC=new ClientC();
