@@ -14,5 +14,6 @@ include_once "functions.php"
 <center>
     <h1 style="margin-top: 100px;">Thank you for shopping easyrocket!!</h1>
 </center>
+<?=template_footer();?>
 </body>
 </html>

@@ -1,4 +1,5 @@
 <?php
+include '../../Controllers/Shop/mail.php';
 
 if (!isset($_SESSION['cart_items']) || empty($_SESSION['cart_items'])) {
   header('location:index.php');
@@ -83,6 +84,16 @@ if (isset($_POST['submit'])) {
           unset($_SESSION['cart_items']);
           unset($_SESSION['cart']);
           $_SESSION['confirm_order'] = true;
+          $email='youfou09@gmail.com';
+          $email_content = array(
+            'Subject' => 'IMPORTANT!! VERIFICATION FORMATION by EDUCAPLAY',
+            'body' => "Bonjour Mr/Mme chaima,
+            Votre formation a été verifier avec  success et elle était 
+            Merci pour votre effores.
+            cordialement,
+            EDUCAPLAY"
+        );
+        sendemail($email,$email_content);
           header('location:thank-you.php');
           exit();
         }
