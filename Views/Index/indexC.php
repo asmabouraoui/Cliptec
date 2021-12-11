@@ -24,6 +24,11 @@ $_SESSION['CIN'] = $cin;
  global $user;
 
  $user = $result->fetch(PDO::FETCH_ASSOC);
+ //
+ $_SESSION['name']=$user['NAME'];
+ $_SESSION['lastname']=$user['Lastname'];
+ $_SESSION['online']=$user['Online'];
+//
  $_SESSION['role']=$user['Role'];
  include_once '../../config.php';
 
