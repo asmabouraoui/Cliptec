@@ -84,16 +84,13 @@ if (isset($_POST['submit'])) {
           unset($_SESSION['cart_items']);
           unset($_SESSION['cart']);
           $_SESSION['confirm_order'] = true;
-          $email='youfou09@gmail.com';
+          $email = $email;
           $email_content = array(
-            'Subject' => 'IMPORTANT!! VERIFICATION FORMATION by EDUCAPLAY',
-            'body' => "Bonjour Mr/Mme chaima,
-            Votre formation a été verifier avec  success et elle était 
-            Merci pour votre effores.
-            cordialement,
-            EDUCAPLAY"
-        );
-        sendemail($email,$email_content);
+            'Subject' => 'EasyRocket Order confirmation',
+            'body' => "Dear " . $firstName . " " . $lastName . PHP_EOL . "We are hereby confirming your order n:" . $getOrderID .
+              PHP_EOL . "Your total order price is :" . $totalPrice . "$" . PHP_EOL . "Thank you for the support"
+          );
+          sendemail($email, $email_content);
           header('location:thank-you.php');
           exit();
         }
@@ -153,111 +150,113 @@ if (isset($_POST['submit'])) {
   }
 }
 
-$pageTitle = 'Demo PHP Shopping cart checkout page with Validation';
-$metaDesc = 'Demo PHP Shopping cart checkout page with Validation';
+$pageTitle = '';
+$metaDesc = '';
 
 ?>
-<?=template_header('Checkout')?>
-<div class="row mt-3">
-  <div class="col-md-4 order-md-2 mb-4">
-    <h4 class="d-flex justify-content-between align-items-center mb-3">
-      <span class="text-muted">Your cart</span>
-      <span class="badge badge-secondary badge-pill"><?php echo $cartItemCount; ?></span>
-    </h4>
-    <ul class="list-group mb-3">
-      <?php
+<?= template_header('Checkout') ?>
+<div class="container">
+  <div class="row mt-3">
+    <div class="col-md-4 order-md-2 mb-4">
+      <h4 class="d-flex justify-content-between align-items-center mb-3">
+        <span class="text-muted">Your cart</span>
+        <span class="badge badge-secondary badge-pill"><?php echo $cartItemCount; ?></span>
+      </h4>
+      <ul class="list-group mb-3">
+        <?php
 
-      $total = 0;
-      foreach ($_SESSION['cart_items'] as $cartItem) {
-        $itemTotalPrice = $cartItem['price'] * $cartItem['quantity'];
-        $total += $itemTotalPrice;
-      ?>
-        <li class="list-group-item d-flex justify-content-between lh-condensed">
-          <div>
-            <h6 class="my-0"><?php echo $cartItem['name'] ?></h6>
-            <small class="text-muted">Quantity: <?php echo $cartItem['quantity'] ?> X Price: <?php echo $cartItem['price'] ?></small>
-          </div>
-          <span class="text-muted">$<?php echo $itemTotalPrice ?></span>
+        $total = 0;
+        foreach ($_SESSION['cart_items'] as $cartItem) {
+          $itemTotalPrice = $cartItem['price'] * $cartItem['quantity'];
+          $total += $itemTotalPrice;
+        ?>
+          <li class="list-group-item d-flex justify-content-between lh-condensed">
+            <div>
+              <h6 class="my-0"><?php echo $cartItem['name'] ?></h6>
+              <small class="text-muted">Quantity: <?php echo $cartItem['quantity'] ?> X Price: <?php echo $cartItem['price'] ?></small>
+            </div>
+            <span class="text-muted">$<?php echo $itemTotalPrice ?></span>
+          </li>
+        <?php
+        }
+        ?>
+
+        <li class="list-group-item d-flex justify-content-between">
+          <span>Total (USD)</span>
+          <strong>$<?php echo number_format($total, 2); ?></strong>
         </li>
+      </ul>
+    </div>
+    <div class="col-md-8 order-md-1">
+      <h4 class="mb-3">Billing address</h4>
       <?php
+      if (isset($errorMsg) && count($errorMsg) > 0) {
+        foreach ($errorMsg as $error) {
+          echo '<div class="alert alert-danger">' . $error . '</div>';
+        }
       }
       ?>
-
-      <li class="list-group-item d-flex justify-content-between">
-        <span>Total (USD)</span>
-        <strong>$<?php echo number_format($total, 2); ?></strong>
-      </li>
-    </ul>
-  </div>
-  <div class="col-md-8 order-md-1">
-    <h4 class="mb-3">Billing address</h4>
-    <?php
-    if (isset($errorMsg) && count($errorMsg) > 0) {
-      foreach ($errorMsg as $error) {
-        echo '<div class="alert alert-danger">' . $error . '</div>';
-      }
-    }
-    ?>
-    <form class="needs-validation" method="POST">
-      <div class="row">
-        <div class="col-md-6 mb-3">
-          <label for="firstName">First name</label>
-          <input type="text" class="form-control" id="firstName" name="first_name" placeholder="First Name" value="<?php echo (isset($fnameValue) && !empty($fnameValue)) ? $fnameValue : '' ?>">
+      <form class="needs-validation" method="POST">
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="firstName">First name</label>
+            <input type="text" class="form-control" id="firstName" name="first_name" placeholder="First Name" value="<?php echo (isset($fnameValue) && !empty($fnameValue)) ? $fnameValue : '' ?>">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="lastName">Last name</label>
+            <input type="text" class="form-control" id="lastName" name="last_name" placeholder="Last Name" value="<?php echo (isset($lnameValue) && !empty($lnameValue)) ? $lnameValue : '' ?>">
+          </div>
         </div>
-        <div class="col-md-6 mb-3">
-          <label for="lastName">Last name</label>
-          <input type="text" class="form-control" id="lastName" name="last_name" placeholder="Last Name" value="<?php echo (isset($lnameValue) && !empty($lnameValue)) ? $lnameValue : '' ?>">
+
+        <div class="mb-3">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" value="<?php echo (isset($emailValue) && !empty($emailValue)) ? $emailValue : '' ?>">
         </div>
-      </div>
 
-      <div class="mb-3">
-        <label for="email">Email</label>
-        <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" value="<?php echo (isset($emailValue) && !empty($emailValue)) ? $emailValue : '' ?>">
-      </div>
-
-      <div class="mb-3">
-        <label for="address">Address</label>
-        <input type="text" class="form-control" id="address" name="address" placeholder="1234 Main St" value="<?php echo (isset($addressValue) && !empty($addressValue)) ? $addressValue : '' ?>">
-      </div>
-
-      <div class="mb-3">
-        <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
-        <input type="text" class="form-control" id="address2" name="address2" placeholder="Apartment or suite" value="<?php echo (isset($address2Value) && !empty($address2Value)) ? $address2Value : '' ?>">
-      </div>
-
-      <div class="row">
-        <div class="col-md-5 mb-3">
-          <label for="country">Country</label>
-          <select class="custom-select d-block w-100" name="country" id="country">
-            <option value="">Choose...</option>
-            <option value="United States">United States</option>
-          </select>
+        <div class="mb-3">
+          <label for="address">Address</label>
+          <input type="text" class="form-control" id="address" name="address" placeholder="1234 Main St" value="<?php echo (isset($addressValue) && !empty($addressValue)) ? $addressValue : '' ?>">
         </div>
-        <div class="col-md-4 mb-3">
-          <label for="state">State</label>
-          <select class="custom-select d-block w-100" name="state" id="state">
-            <option value="">Choose...</option>
-            <option value="California">California</option>
-          </select>
-        </div>
-        <div class="col-md-3 mb-3">
-          <label for="zip">Zip</label>
-          <input type="text" class="form-control" id="zip" name="zipcode" placeholder="" value="<?php echo (isset($zipCodeValue) && !empty($zipCodeValue)) ? $zipCodeValue : '' ?>">
-        </div>
-      </div>
-      <hr class="mb-4">
 
-      <h4 class="mb-3">Payment</h4>
-
-      <div class="d-block my-3">
-        <div class="custom-control custom-radio">
-          <input id="cashOnDelivery" name="cashOnDelivery" type="radio" class="custom-control-input" checked="">
-          <label class="custom-control-label" for="cashOnDelivery">Cash on Delivery</label>
+        <div class="mb-3">
+          <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
+          <input type="text" class="form-control" id="address2" name="address2" placeholder="Apartment or suite" value="<?php echo (isset($address2Value) && !empty($address2Value)) ? $address2Value : '' ?>">
         </div>
-      </div>
 
-      <hr class="mb-4">
-      <button class="btn btn-primary btn-lg btn-block" type="submit" name="submit" value="submit">Continue to checkout</button>
-    </form>
+        <div class="row">
+          <div class="col-md-5 mb-3">
+            <label for="country">Country</label>
+            <select class="custom-select d-block w-100" name="country" id="country">
+              <option value="">Choose...</option>
+              <option value="United States">United States</option>
+            </select>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="state">State</label>
+            <select class="custom-select d-block w-100" name="state" id="state">
+              <option value="">Choose...</option>
+              <option value="California">California</option>
+            </select>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="zip">Zip</label>
+            <input type="text" class="form-control" id="zip" name="zipcode" placeholder="" value="<?php echo (isset($zipCodeValue) && !empty($zipCodeValue)) ? $zipCodeValue : '' ?>">
+          </div>
+        </div>
+        <hr class="mb-4">
+
+        <h4 class="mb-3">Payment</h4>
+
+        <div class="d-block my-3">
+          <div class="custom-control custom-radio">
+            <input id="cashOnDelivery" name="cashOnDelivery" type="radio" class="custom-control-input" checked="">
+            <label class="custom-control-label" for="cashOnDelivery">Cash on Delivery</label>
+          </div>
+        </div>
+
+        <hr class="mb-4">
+        <button class="btn btn-primary btn-lg btn-block" type="submit" name="submit" value="submit">Continue to checkout</button>
+      </form>
+    </div>
   </div>
 </div>

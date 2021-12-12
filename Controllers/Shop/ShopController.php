@@ -26,6 +26,16 @@ class CommandeC
         } catch (Exception $e) {
             die('Erreur:' . $e->getMessage());
         }
+        $sql = "DELETE FROM order_details WHERE
+            order_id=:id";
+        $db = config::getConnexion();
+        $req = $db->prepare($sql);
+        $req->bindValue(':id', $id);
+        try {
+            $req->execute();
+        } catch (Exception $e) {
+            die('Erreur:' . $e->getMessage());
+        }
     }
     function ajoutercommande($commande)
     {
@@ -71,7 +81,7 @@ class CommandeC
             $db = config::getConnexion();
             $query = $db->prepare(
                 'UPDATE commande SET 
-                    first_ame= :firstName, 
+                    first_name= :firstName, 
                     last_name= :lastName, 
                     email= :email,
                     address=:address,

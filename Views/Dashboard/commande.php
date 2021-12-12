@@ -56,7 +56,7 @@ $listeCommandes = $commandeC->affichercommandes();
 				<th>Order Status</th>
 				<th>Date Created</th>
 				<th>Delete Order</th>
-
+				<th>Update Order</th>
 			</tr>
 			<?php
 			foreach ($listeCommandes as $commande) {
@@ -75,9 +75,9 @@ $listeCommandes = $commandeC->affichercommandes();
 					<td><?php echo $commande['order_status']; ?></td>
 					<td><?php echo $commande['created_at']; ?></td>
 					<td><a href="supprimercommande.php?idCommande=<?php echo $commande['id']; ?>">Delete</a></td>
-					<!--<td>
+					<td>
 						<a href="modifierCommande.php?idCommande=<?php echo $commande['id']; ?>">Update</a>
-					</td>-->
+					</td>
 				</tr>
 			<?php
 			}

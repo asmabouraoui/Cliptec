@@ -21,9 +21,16 @@ if (
         is_numeric($_POST['prixCommande'])
     ) {
         $commande = new Commande(
+            $commande->first_name,
+            $commande->last_name,
+            $commande->email,
+            $commande->adress,
+            $commande->adress2,
+            $commande->country,
+            $commande->state,
+            $commande->zipcode,
+            $commande->total_price,
             $_POST['statusCommande'],
-            $_POST['prixCommande'],
-            $_POST['dateCommande']
         );
         $commandeC->modifiercommande($commande, $_GET["idCommande"]);
         header('Location:commande.php');
@@ -62,10 +69,6 @@ if (
                     <option value="Delivered">Delivered</option>
                     <option value="Canceled">Canceled</option>
                 </select>
-
-                <input type="text" name="prixCommande" id="prixCommande" class="feedback-input" value="<?php echo $commande['prixCommande']; ?>" maxlength="20">
-
-                <input type="date" name="dateCommande" class="feedback-input" value="<?php echo $commande['dateCommande']; ?>" id="dateCommande">
 
                 <input type="submit" value="Modify" class="buttons">
 

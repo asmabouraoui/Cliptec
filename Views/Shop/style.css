@@ -54,7 +54,7 @@ header {
 .container-1 li{
     display: inline-block;
     padding:0px 20px;
-	
+	margin-top: 20px ;
 }
 .btn btn-primary btn-lg btn-block{
 	background-color: #ff5757;

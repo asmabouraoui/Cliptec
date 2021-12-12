@@ -44,9 +44,9 @@ echo <<<EOT
                     <li><a href="#">Womens</a></li>
                     <li><a href="#">Kids</a></li>
                     <li><a href="#">Accessories</a></li>
-                    <li><a href="#">Premium</a></li>
+                    <li><a href="index.php?page=products">Products</a></li>
                     <li><a href="#">Account</a></li>
-                    <li><a href="index.php?page=products">Search</a></li>
+                    <li><a href="#">Search</a></li>
                 </ul>
             </nav>
             <div class="link-icons">
