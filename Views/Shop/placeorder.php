@@ -87,8 +87,8 @@ if (isset($_POST['submit'])) {
           $email = $email;
           $email_content = array(
             'Subject' => 'EasyRocket Order confirmation',
-            'body' => "Dear " . $firstName . " " . $lastName . PHP_EOL . "We are hereby confirming your order n:" . $getOrderID .
-              PHP_EOL . "Your total order price is :" . $totalPrice . "$" . PHP_EOL . "Thank you for the support"
+            'body' => "Dear " . $firstName . " " . $lastName .  "<br>We are hereby confirming your order n:" . $getOrderID .
+               "<br>Your total order price is :" . $totalPrice . "$" .  "<br>Thank you for the support"
           );
           sendemail($email, $email_content);
           header('location:thank-you.php');
@@ -228,14 +228,37 @@ $metaDesc = '';
             <label for="country">Country</label>
             <select class="custom-select d-block w-100" name="country" id="country">
               <option value="">Choose...</option>
-              <option value="United States">United States</option>
+              <option value="Tunisia">Tunisia</option>
             </select>
           </div>
           <div class="col-md-4 mb-3">
             <label for="state">State</label>
             <select class="custom-select d-block w-100" name="state" id="state">
               <option value="">Choose...</option>
-              <option value="California">California</option>
+              <option value="Ariana">Ariana</option>
+              <option value="Beja">Béja</option>
+              <option value="Ben Arous">Ben Arous</option>
+              <option value="Bizerte">Bizerte</option>
+              <option value="Gabes">Gabès</option>
+              <option value="Gafsa">Gafsa</option>
+              <option value="Jendouba">Jendouba</option>
+              <option value="Kairouan">Kairouan</option>
+              <option value="Kasserine">Kasserine</option>
+              <option value="Kebili">Kébili</option>
+              <option value="Le Kef">Le Kef</option>
+              <option value="Mahdia">Mahdia</option>
+              <option value="La Manouba">La Manouba</option>
+              <option value="Medenine">Médenine</option>
+              <option value="Monastir">Monastir</option>
+              <option value="Nabeul">Nabeul</option>
+              <option value="Sfax">Sfax</option>
+              <option value="Sidi Bouzid">Sidi Bouzid</option>
+              <option value="Siliana">Siliana</option>
+              <option value="Sousse">Sousse</option>
+              <option value="Tataouine">Tataouine</option>
+              <option value="Tozeur">Tozeur</option>
+              <option value="Tunis">Tunis</option>
+              <option value="Zaghouan">Zaghouan</option>
             </select>
           </div>
           <div class="col-md-3 mb-3">
