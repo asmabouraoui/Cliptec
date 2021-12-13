@@ -33,7 +33,7 @@
 
    <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Prix</label>
-    <input type="number" class="form-control" name="price" >
+    <input type="number" class="form-control" name="price" step="0.01">
   </div>
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">quantite</label>
