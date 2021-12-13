@@ -57,3 +57,6 @@ textarea {
 #error{
   color:red;
 }
+option {
+  background-color:rgb(30,30,40);;
+}

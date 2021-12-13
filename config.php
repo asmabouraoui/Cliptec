@@ -1,24 +1,29 @@
 <?php
-
-class config {
+class config
+{
     private static $pdo = NULL;
 
-    public static function getConnexion(){
-        if (!isset(self::$pdo)){
-            try{
-                self::$pdo = new PDO('mysql:host=localhost;dbname=cliptec','root','lovekai',
-            [
-                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-            ]);
-            }catch(Exception $e){
-                die('Erreue: '.$e->getMessage());
+    public static function getConnexion()
+    {
+        if (!isset(self::$pdo)) {
+            try {
+                self::$pdo = new PDO(
+                    'mysql:host=localhost;dbname=shoppingcart',
+                    'root',
+                    'lovekai',
+                    [
+                        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+                    ]
+                );
+            } catch (Exception $e) {
+                die('Erreur: ' . $e->getMessage());
             }
         }
         return self::$pdo;
     }
-
 }
+
 
 
 ?>
