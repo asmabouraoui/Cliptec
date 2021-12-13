@@ -147,6 +147,25 @@ $listecomment = $commentC->afficher_all_comment();
                <iframe src="StatisticsComment.php" style=" height:400px;width:100%;display:block"></iframe>
                <iframe src="StatisticsQuestions.php" style=" height:400px;width:100%;display:block"></iframe>
            
+
+               <p class="box-content-header">reported questions</p>
+                <!-- <p class="box-content-subheader">in case you want to add anything here</p> -->
+              </div>
+              <table style="position: relative; left: 50%; transform: translateX(-50%);">
+                <tr>
+                <th>reports</th>
+                </tr>
+                <?php
+                    foreach ($listeQuestions as $question) {
+                ?>
+                  <tr>
+                  <td><?php echo $question['question_title']; ?></td>
+                  <td><?php echo $question['question_content']; ?></td>
+                  <td><?php echo $question['question_date']; ?></td>
+                  <td><a href="delete_question.php?question_id=<?php echo $question['question_id'] ?>&dir=2"><span class="material-icons-outlined">delete_forever</span></a></td>
+                </tr>
+                <?php } ?>
+                </table>
             <!--this is the box to work with--          </div>
         </div>
       </div>
