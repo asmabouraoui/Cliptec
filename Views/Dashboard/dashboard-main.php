@@ -1,5 +1,6 @@
 <?php
-include_once './Controller/ClientC.php';
+    include_once '../../Models\Client.php';
+    include_once '../../Controllers/Profile/ClientC.php';
 session_start();
 
 $ClientC=new ClientC();
@@ -14,6 +15,7 @@ $imageData = base64_encode(file_get_contents($image));
 
  if ($user['Role']!='Admin')
 die('<img src="data:image/jpeg;base64,'.$imageData.'">');
+$ClientList= $ClientC->showExistingUsers();
 
 ?>
 
@@ -27,10 +29,10 @@ die('<img src="data:image/jpeg;base64,'.$imageData.'">');
     <title>Dashboard</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
     rel="stylesheet">
-    <link rel="stylesheet" href="./assets/css/dashboard.css">
+    <link rel="stylesheet" href="../../assets/css/Dashboard/dashboard.css">
 </head>
 <body onload="test()">
-    <script src="./assets/javascript/script.js"></script>
+<script src="../../assets/javascript/Home/script.js"></script>
     <div class="app-container">
         <div class="app-header">
           <div class="app-header-left">
@@ -45,7 +47,7 @@ die('<img src="data:image/jpeg;base64,'.$imageData.'">');
               </svg>
             </button>
             <button class="profile-btn" style="pointer-events: none;">
-              <span>Amrou Ghribi</span>
+              <span><?php echo $user['NAME'].' '.$user['Lastname']; ?></span>
             </button>
           </div>
         </div>
@@ -63,24 +65,20 @@ die('<img src="data:image/jpeg;base64,'.$imageData.'">');
             <a href="./dashboard-events.html" class="app-sidebar-link">
                 <span class="material-icons">confirmation_number</span>
             </a><br><br><br><br><br><br><br><br><br><br><br>
-            <a href="./indexC.html" class="app-sidebar-link">
+            <a href="../Index/indexC.php" class="app-sidebar-link">
                 <span class="material-icons">keyboard_return</span>
             </a>
           </div>
           <div class="projects-section">
             <div class="projects-section-header">
               <p>Home</p>
-              <p class="time">November, 11</p>
+              <p class="time"><?php echo date('d F Y');?></p>
             </div>
             <div class="projects-section-line">
               <div class="projects-status">
                 <div class="item-status">
-                  <span class="status-number">0</span>
+                  <span class="status-number"><?php echo $ClientList->rowCount();?></span>
                   <span class="status-type">Total users</span>
-                </div>
-                <div class="item-status">
-                  <span class="status-number">0</span>
-                  <span class="status-type">Online users</span>
                 </div>
                 <div class="item-status">
                   <span class="status-number">0</span>
@@ -145,9 +143,9 @@ die('<img src="data:image/jpeg;base64,'.$imageData.'">');
               <div class="box-progress-wrapper">
                 <p class="box-progress-header">Newly joined users</p>
                 <div class="box-progress-bar">
-                  <span class="box-progress" style="width: 0%; background-color: #4f3ff0"></span>
+                  <span class="box-progress" style="width: <?php echo $ClientList->rowCount();?>%; background-color: #4f3ff0"></span>
                 </div>
-                <p class="box-progress-percentage">0/100</p>
+                <p class="box-progress-percentage"><?php echo $ClientList->rowCount();?></p>
               </div>
             </div>
           </div>

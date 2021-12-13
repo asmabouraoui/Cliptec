@@ -1,0 +1,544 @@
+@import url("https://fonts.googleapis.com/css?family=DM+Sans:400,500,700&display=swap");
+
+* {
+    box-sizing: content-box;
+}
+body {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    color: rgb(0, 0, 0);
+    overflow-x: hidden;
+    background: #ffffff;
+}
+
+html, body {
+    margin:0%;
+    padding: 0%;
+    min-height: 100%;
+}
+
+
+#logo
+{
+    position: absolute;
+    width: 25%;
+    top: -10%;
+}
+
+
+
+li {
+    display: inline;
+    font-size: 14px;
+    font-weight: bold;
+    margin-right: 3em;
+    letter-spacing: 0.2px;
+    color: whitesmoke;
+}
+
+
+.list:hover {
+    transition: 0.12s ease-in-out;
+    text-decoration: underline;
+    text-decoration-color: #ffffff;
+    text-decoration-thickness: 2px;
+}
+
+
+
+a {
+    text-decoration: none;
+    color: rgb(141, 141, 141);
+    font-family: 'DM Sans', sans-serif;
+}
+.php {
+    text-decoration: none;
+    color: black;
+}
+a:hover {
+    color: black;
+    opacity: 100%;
+    text-decoration: list;
+    text-decoration-color: #1b1b1b;
+    text-decoration-thickness: 2px;
+}
+
+.background {
+    background-color: transparent;
+    width: 100%;
+    height: 67%;
+    position: absolute;
+    top: 35%;
+    box-shadow: 0px 8px 25px -11px rgba(0,0,0,0.75); 
+}
+
+.profile {
+    width: 100px;
+    height: 100px;
+    background: black;
+    position: absolute;
+    border-radius: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 29%;
+    border-bottom: 2.5px solid #6de63e;
+}
+
+.buttons-container {
+    display: flex;
+    position: absolute;
+    top: 38.5%;
+    right: 7%;
+    z-index: 10;
+}
+
+.profilewrapper .icon {
+    font-size: 22px;
+    font-weight: lighter;
+    color: rgb(0, 0, 0);
+    margin-right: 35px;
+}
+.icon:hover {
+   color: #ff5757;
+   text-shadow: 0px 3px 10px rgba(0, 0, 0, 0.315);
+}
+
+
+.profilewrapper .nameuser {
+    position: absolute;
+    top: 34.5%;
+    left: 9%;
+    font-size: 23px;
+    font-weight: bold;
+    font-family: 'DM Sans', sans-serif;
+    text-align: left;
+    color: rgb(0, 0, 0);
+}
+
+.profilewrapper p {
+    position: absolute;
+    top: 39%;
+    left: 9%;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    text-align: left;
+    color: #ff5757;
+}
+.profilewrapper .upper {
+    position: absolute;
+    top: 45%;
+    width: 100%;
+    border: 0.1px solid #f0f0f0;
+    background: #ffffff;
+    opacity: 1;
+    margin-top: 0;
+}
+
+.profilewrapper h3 {
+    position: absolute;
+    top: 36.4%;
+    right: 11.5%;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    text-align: left;
+    color: black;
+}
+
+input {
+    border: 1px solid #383838;
+    border-radius: 0px;
+    background: transparent;
+    color: rgb(0, 0, 0);
+    text-align: left;
+    padding: 3px 5px;
+    outline: none;
+}
+input:focus {
+    border: 1px solid #ff5757;
+}
+input[type=submit] {
+    width: 70px;
+    background: black;
+    color: white;
+    border: 1px solid black;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    text-align: center;
+    border: none;
+}
+input[type=submit]:hover {
+    background: white;
+    border: 1px solid #ff5757;
+    color: black;
+}
+.up {
+    color: black;
+    position: absolute;
+    bottom: 6.3%;
+    right: 4%;
+    font-size: 14px;
+    pointer-events: none;
+}
+
+input[type=submit]:hover > .up {
+    color: black;
+}
+.reqTransporter {
+    position: absolute;
+    right: 5%;
+    top: 56%;
+    width: 400px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+}
+.reqTransporter .titletransporter {
+    font-size: 26px;
+}
+.content_wrapper {
+    width: 100%;
+    height: 50%;
+    margin-top: 30px;
+    display: flex;
+    justify-content: right;
+}
+button {
+    background: black;
+    border: 1px solid #ffffff;
+    padding: 10px 15px;
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: bold;
+    margin-right: 10px;
+    font-size: 12px;
+    border-radius: 2px;
+}
+button:hover {
+    background: white;
+    color: black;
+    border: 1px solid #000000;
+    cursor: pointer;
+}
+.contenttransporter span {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: bold;
+    font-size: 32px;
+    color: #161616;
+    letter-spacing: 1.5px;
+}
+.contenttransporter span::before {
+    content: '';
+    width: 10px;
+    height: 5px;
+    margin-right: 10px;
+    background: #ff5757;
+    display: inline-block;
+}
+.contenttransporter span::after {
+    content: '';
+    width: 58.5%;
+    height: 5px;
+    margin-left: 10px;
+    background: #ff5757;
+    display: inline-block;
+}
+
+.formwrapper {
+    background: transparent;
+    width: 80vw;
+    height: 250px;
+    position: absolute;
+    top: 55%;
+    left: 7vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 18px;
+    transform: translate(-50%,-50%);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: bold;
+    font-size: 22px;
+    letter-spacing: 1px;
+}
+.containerform {
+   /* position: absolute;
+    top: 62%;
+    left: 9%;*/
+    display: flex;
+    flex-direction: column;
+    width: 24%;
+}
+.smallcontainer {
+    margin-bottom: 10px;
+    width: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.smallcontainer .title {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: left;
+    color: rgb(24, 24, 24);
+}
+.smallcontainer span {
+    color: #ff5757;
+}
+span.iconform {
+    margin-right: 5px;
+    font-size: 16px;
+}
+.container-hr {
+    background-color: rgb(0, 0, 0);
+    width: 350px;
+    position: absolute;
+    left: 0%;
+    top: -15%;
+}
+.smallcontainer .userdata {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 100;
+    font-size: 14px;
+    text-align: left;
+    color: rgb(0, 0, 0);
+}
+
+footer {
+    width: 100%;
+    height: 100px;
+    background: #000000;
+    position: absolute;
+    top: 98vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header {
+    width: 100%;
+    height: 80px;
+    background: #000000;
+    position: fixed;
+    top: 0;
+    display: flex;
+    padding: 0px 5%;
+    align-items: center;
+}
+
+header img {
+    max-width: auto;
+    height: 30%;
+    padding-right: 10%;
+}
+
+.notification_container {
+    height: 200px;
+    width: 250px;
+    background: transparent;
+    position: absolute;
+    right: 4.5vw;
+    top: 10vh;
+    display: none;
+    flex-direction: column;
+    z-index: 1000;
+}
+.notification_container .header {
+    padding: 0 15px;
+    width: auto;
+    height: 35px;
+    background: rgb(242, 255, 255);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+}
+.header .title {
+    font-size: 14px;
+    font-family: 'DM sans', sans-serif;
+    font-weight: bolder;
+    letter-spacing: 1px;
+}
+.header .icon {
+    font-size: 18px;
+    font-weight: 100;
+    color: black;
+    border-radius: 5px;
+}
+.header .icon:hover {
+    background: black;
+    color: white;
+}
+.notification_container .container {
+    width: auto;
+    height: 100px;
+    background: white;
+    border-top: 1px solid rgb(180, 180, 180);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.container .empty {
+    width: 50px;
+    height: 100%;
+    background: rgb(242, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   /* border-right: 1px solid rgb(180, 180, 180); */
+   border-bottom-left-radius: 15px;
+}
+.empty .icon {
+    font-size: 18px;
+    color: rgb(50, 179, 230);
+    font-weight: lighter;
+}
+.empty .icon:hover {
+    color: rgb(29, 29, 29);
+    font-weight: lighter;
+    cursor: pointer;
+}
+.container .right_content {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.right_content .content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 3px;
+}
+.content .name {
+    font-family: 'DM sans', sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    color: #2b2b2b;
+}
+.content .date {
+    font-family: 'DM sans', sans-serif;
+    font-size: 12px;
+    font-weight: lighter;
+    letter-spacing: 1px;
+}
+.content .description {
+    font-family: 'DM sans', sans-serif;
+    font-size: 12px;
+    font-weight: lighter;
+    letter-spacing: 1px;
+}
+.content .button {
+    border-radius: 5px;
+    background: transparent;
+    color: black;
+    border: 1px solid black;
+    font-weight: bold;
+    padding: 5px 7px;
+}
+.content .button:hover {
+    color: #2e2e2e;
+}
+
+.content .accept:hover {
+    border-color: green;
+    color: green;
+}
+.content .refuse:hover {
+    border-color: rgb(192, 32, 32);
+    color: rgb(192, 32, 32);
+}
+.content .verify:hover {
+    border-color: rgb(255, 154, 39);
+    color: rgb(255, 154, 39);
+} 
+.container:last-child {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding-bottom: 5px;
+}
+
+.buttons {
+    position: relative;
+    right: -34%;
+    display: flex;
+    align-items: center;
+}
+button {
+    background: black;
+    border: 1px solid #ffffff;
+    padding: 5px 10px;
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: bold;
+    margin-right: 10px;
+    font-size: 12px;
+    border-radius: 2px;
+}
+button:hover {
+    background: white;
+    color: black;
+    cursor: pointer;
+}
+
+.menu {
+    border: 1px solid transparent;
+    border-radius: 50px;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+    margin-right: 10px;
+    font-size: 18px;
+    position: relative;
+    left: 50%;
+}
+.menu:hover {
+    background: rgb(255, 255, 255);
+    color: black;
+}
+
+.notification {
+    border: 1px solid transparent;
+    border-radius: 50px;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+    margin-right: 10px;
+    font-size: 18px;
+    position: relative;
+    left: 300%;
+}
+.notification:hover {
+    background: rgb(255, 255, 255);
+    color: black;
+}
+.number {
+    width: 13px;
+    height: 13px;
+    border-radius: 50px;
+    background: rgb(183, 220, 255);
+    position: relative;
+    top: -8px;
+    right: -190%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 11px;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    font-family: 'DM sans', sans-serif;
+}

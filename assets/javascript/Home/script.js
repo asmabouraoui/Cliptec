@@ -1,371 +1,436 @@
 
-// visitor index page below
-function prompt_menu()
-{
-    //Position parameters used for drawing the rectangle
-var x = 0;
-var y = 0;
-var width = screen.availWidth;
-var height = screen.availHeight;
-
-document.getElementById('menu-btn').style.display='none';
-
-var canvas = document.createElement('canvas'); //Create a canvas element
-canvas.setAttribute('id','canva');
-//Set canvas width/height
-canvas.style.width='100%';
-canvas.style.height='100%';
-//Set canvas drawing area width/height
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-//Position canvas
-canvas.style.position='absolute';
-canvas.style.left=0;
-canvas.style.top=0;
-canvas.style.zIndex=10000;
-canvas.style.pointerEvents='none'; //Make sure you can click 'through' the canvas
-document.body.appendChild(canvas); //Append canvas to body element
-var context = canvas.getContext('2d');
-//Draw rectangle
-context.rect(x, y, width, height);
-context.fillStyle = '#ff5757';
-context.fill();
-
-// animation transition
-
-var rect = document.createElement('div');
-    rect.setAttribute('id','rect');
-    rect.style.width = '100%';
-    rect.style.height = '0%';
-    rect.style.position = 'absolute';
-    rect.style.bottom = 0;
-    rect.style.left = 0;
-    rect.style.background = '#ffffff';
-    rect.style.zIndex = 10004;
-    rect.style.transition = '0.3s ease-in';
-    document.body.append(rect);
-
-    // div (rectangle) above 
-
-//login button
-var login = document.createElement('img');
-login.setAttribute('id','login');
-login.setAttribute('src','./../../assets/images/log in-black.png');
-document.body.append(login);
-var loginstyle = document.getElementById('login');
-loginstyle.style.width='25%';
-loginstyle.style.position= 'absolute';
-loginstyle.style.top= '35%';
-loginstyle.style.right= '37%';
-loginstyle.style.zIndex= 10002;
-
-
-login.addEventListener('mouseenter',function(){
-login.setAttribute('src','./../../assets/images/log in-white.png');
-});
-login.addEventListener('mouseleave',function(){
-    login.setAttribute('src','./../../assets/images/log in-black.png');
-    })
-login.addEventListener('click',function(){
-    rect.style.height= '100%';
-    rect.addEventListener('transitionend', () => {
-        window.location= './login.html';
-    });
-});
-// end of login button
-
-//register button
-var register = document.createElement('img');
-register.setAttribute('id','register');
-register.setAttribute('src','./../../assets/images/register-black.png');
-document.body.append(register);
-var registerstyle = document.getElementById('register');
-registerstyle.style.width='25%';
-registerstyle.style.position= 'absolute';
-registerstyle.style.top= '50%';
-registerstyle.style.right= '37%';
-registerstyle.style.zIndex= 10002;
-register.addEventListener('mouseenter',function(){
-    register.setAttribute('src','./../../assets/images/register-white.png');
-});
-register.addEventListener('mouseleave',function(){
-    register.setAttribute('src','./../../assets/images/register-black.png');
-    }) 
-
-    register.addEventListener('click',function(){
-        rect.style.height= '100%';
-        rect.addEventListener('transitionend', () => {
-            window.location= './register.html';
+    document.addEventListener('DOMContentLoaded', function () {
+        var modeSwitch = document.querySelector('.mode-switch');
+      
+        modeSwitch.addEventListener('click', function () {                     
+        document.documentElement.classList.toggle('dark');
+          modeSwitch.classList.toggle('active');
         });
-    });
-
-// exit button above canva
-var exitbtn = document.createElement('img');
-exitbtn.setAttribute('id','exit');
-exitbtn.setAttribute('src','./../../assets/images/X-index.png');
-document.body.append(exitbtn);
-exitbtn.addEventListener('mouseenter',function(){
-    exitbtn.setAttribute('src','./../../assets/images/X-index-black.png');
-});
-exitbtn.addEventListener('mouseleave',function(){
-    exitbtn.setAttribute('src','./../../assets/images/X-index.png');
-    }) 
-// end of exit button
-
-
-exitbtn.addEventListener('click',function() {
-    document.body.removeChild(canvas);
-    document.getElementById('exit').parentNode.removeChild(document.getElementById('exit'));
-    document.getElementById('rect').parentNode.removeChild(document.getElementById('rect'));
-    document.getElementById('login').parentNode.removeChild(document.getElementById('login'));
-    document.getElementById('register').parentNode.removeChild(document.getElementById('register'));
-   // document.getElementById('exit').style.display= 'none';
-    document.getElementById('menu-btn').style.display= 'block';
-    document.getElementById('menu-btn').style.pointerEvents='painted';
-
-});
-
-
-}
-
-// visitor index page above
-
-// register page below
-
-function register()
-{
-
-    var rectani = document.createElement('div');
-    rectani.setAttribute('id','rect');
-    rectani.style.width = '100%';
-    rectani.style.height = '100%';
-    rectani.style.position = 'absolute';
-    rectani.style.top = 0;
-    rectani.style.left = 0;
-    rectani.style.background = '#ffffff';
-    rectani.style.zIndex = 10004;
-    rectani.style.animationName = 'rectup';
-    rectani.style.animationDelay= '0.5s';
-    rectani.style.animationDuration = '0.9s';
-    rectani.style.animationIterationCount ='1';
-    document.body.append(rectani);
-
-    rectani.addEventListener('animationend', () => {
-        document.getElementById('rect').parentNode.removeChild(document.getElementById('rect'));
-    });
-
-
-    var rect = document.createElement('div');
-    rect.style.width = '25%';
-    rect.style.height = '100%';
-    rect.style.background = 'black';
-    rect.style.position = 'absolute';
-    rect.style.top = 0;
-    rect.style.left = '37%';
-    rect.style.zIndex = 0;
-    document.body.append(rect);
-
-    var logo = document.createElement('img');
-    logo.setAttribute('id','logo');
-    logo.setAttribute('src','./../../assets/images/logo black bg.png');
-    logo.style.zIndex = 1;
-    logo.style.width ='30%';
-    logo.style.position ='absolute';
-    logo.style.top = '-16.5%';
-    logo.style.left = '30.5%';
-    document.body.append(logo);
-
-    var moonleft = document.createElement('img');
-    moonleft.setAttribute('id','moonleft');
-    moonleft.setAttribute('src','./../../assets/images/tothemoonleft.png');
-    moonleft.style.width='15%';
-    moonleft.style.position ='absolute';
-    moonleft.style.top ='12%';
-    moonleft.style.left = '7%';
-    document.body.append(moonleft);
-
-    var moonright = document.createElement('img');
-    moonright.setAttribute('id','moonright');
-    moonright.setAttribute('src','./../../assets/images/tothemoonright.png');
-    moonright.style.width='15%';
-    moonright.style.position ='absolute';
-    moonright.style.top ='12%';
-    moonright.style.right = '7%';
-    document.body.append(moonright);
-
-
-
-  //  rectani.style.animationName ='rectup';
-   
-    /* rectani.addEventListener('mouseover', () => {
-        rectani.style.height ='0%';
-    });  */
-}
-
-// register page above
-
-
-// login page below
-
-function login()
-{
-
-    var rectani = document.createElement('div');
-    rectani.setAttribute('id','rect');
-    rectani.style.width = '100%';
-    rectani.style.height = '100%';
-    rectani.style.position = 'absolute';
-    rectani.style.top = 0;
-    rectani.style.right = 0;
-    rectani.style.background = '#ffffff';
-    rectani.style.zIndex = 10004;
-    rectani.style.animationName = 'rectup';
-    rectani.style.animationDelay= '0.5s';
-    rectani.style.animationDuration = '1.2s';
-    rectani.style.animationIterationCount ='1';
-    document.body.append(rectani); 
-
-    rectani.addEventListener('animationend', () => {
-        document.getElementById('rect').parentNode.removeChild(document.getElementById('rect'));
-    }); 
-
-
-    var rect = document.createElement('div');
-    rect.style.width = '25%';
-    rect.style.height = '75%';
-    rect.style.background = 'black';
-    rect.style.position = 'absolute';
-    rect.style.top = 0;
-    rect.style.left = '37%';
-    rect.style.zIndex = 0;
-    document.body.append(rect);
-
-    var logo = document.createElement('img');
-    logo.setAttribute('id','logo');
-    logo.setAttribute('src','./../../assets/images/logo black bg.png');
-    logo.style.zIndex = 1;
-    logo.style.width ='30%';
-    logo.style.position ='absolute';
-    logo.style.top = '-16.5%';
-    logo.style.left = '30.5%';
-    document.body.append(logo);
-
-    var moonleft = document.createElement('img');
-    moonleft.setAttribute('id','moonleft');
-    moonleft.setAttribute('src','./../../assets/images/tothemoonleft.png');
-    moonleft.style.width='15%';
-    moonleft.style.position ='absolute';
-    moonleft.style.top ='12%';
-    moonleft.style.left = '7%';
-    document.body.append(moonleft);
-
-    var moonright = document.createElement('img');
-    moonright.setAttribute('id','moonright');
-    moonright.setAttribute('src','./../../assets/images/tothemoonright.png');
-    moonright.style.width='15%';
-    moonright.style.position ='absolute';
-    moonright.style.top ='12%';
-    moonright.style.right = '7%';
-    document.body.append(moonright);
-
-    rectani.addEventListener('mouseover', () => {
-        rectani.style.height ='0%';
-    }); 
-
-}
-
-// login page above
-
-// index visitor below
+        
+        var listView = document.querySelector('.list-view');
+        var gridView = document.querySelector('.grid-view');
+        var projectsList = document.querySelector('.project-boxes');
+        
+        listView.addEventListener('click', function () {
+          gridView.classList.remove('active');
+          listView.classList.add('active');
+          projectsList.classList.remove('jsGridView');
+          projectsList.classList.add('jsListView');
+        });
+        
+        gridView.addEventListener('click', function () {
+          gridView.classList.add('active');
+          listView.classList.remove('active');
+          projectsList.classList.remove('jsListView');
+          projectsList.classList.add('jsGridView');
+        });
+        
+        document.querySelector('.messages-btn').addEventListener('click', function () {
+          document.querySelector('.messages-section').classList.add('show');
+        });
+        
+        document.querySelector('.messages-close').addEventListener('click', function() {
+          document.querySelector('.messages-section').classList.remove('show');
+        });
+      });
 
 function indexC() {
-var userprofile = document.createElement('div');
-    userprofile.setAttribute('id','profile');
-    userprofile.style.width= '60px';
-    userprofile.style.height= '60px';
-    userprofile.style.background='black';
-    userprofile.style.borderRadius='50%';
-    userprofile.style.position='absolute';
-    userprofile.style.right='7%';
-    userprofile.style.top='12.5%';
-    document.body.append(userprofile);
-
-    userprofile.addEventListener('click', () => {
-        window.location ='./index.html';
-    })
-
-var notification = document.createElement('img');
-    notification.setAttribute('id','notification-icon');
-    notification.setAttribute('src','./../../assets/images/notification-icon.png');
-    notification.style.width='3.5%';
-    notification.style.position='absolute';
-    notification.style.right='14%';
-    notification.style.top='13.5%';
-    document.body.append(notification);
-
-    var logo = document.getElementById('logo').addEventListener('click', () => {
-        window.location= './indexC.html';
-    });
+    var profile = document.getElementById('profile');
+        profile.addEventListener('click', () => {
+            window.location ='./userprofile.php';
+        })
 }
-
-// index visitor above
-
-
-// dashboard code below 
-
-function dashboard() {
-
-    var i = 0;
-var leftrect = document.getElementById('leftrect');
-    leftrect.style.background = '#ff5757';
-    leftrect.style.width = '7%';
-    leftrect.style.height ='100%';
-    leftrect.style.position = 'absolute';
-    leftrect.style.top=0;
-    leftrect.style.left=0;
-    leftrect.style.boxShadow = '1px 1px 10px 1px rgba(0,0,255, .2)';
-
-    var toprect = document.getElementById('toprect');
-    toprect.style.background = '#ffffff';
-    toprect.style.width = '100%';
-    toprect.style.height ='13%';
-    toprect.style.position = 'absolute';
-    toprect.style.top=0;
-    toprect.style.left=0;
-    toprect.style.boxShadow = '1px 1px 10px 1px rgba(0,0,255, .2)';
-
-
-}
-
-// dashboard code above 
-
 
 function events() {
-    var userprofile = document.createElement('div');
-        userprofile.setAttribute('id','profile');
-        userprofile.style.width= '60px';
-        userprofile.style.height= '60px';
-        userprofile.style.background='black';
-        userprofile.style.borderRadius='50%';
-        userprofile.style.position='absolute';
-        userprofile.style.right='7%';
-        userprofile.style.top='12.5%';
-        document.body.append(userprofile);
-    
-        userprofile.addEventListener('click', () => {
+        var profile = document.getElementById('profile');
+        profile.addEventListener('click', () => {
             window.location ='./index.html';
         })
-    
-    var notification = document.createElement('img');
-        notification.setAttribute('id','notification-icon');
-        notification.setAttribute('src','./../../assets/images/notification-icon.png');
-        notification.style.width='3.5%';
-        notification.style.position='absolute';
-        notification.style.right='14%';
-        notification.style.top='13.5%';
-        document.body.append(notification);
-    
-        var logo = document.getElementById('logo').addEventListener('click', () => {
-            window.location= './../../Views/Home/indexC.html';
+        document.getElementById('logo').addEventListener('click', () => {
+            window.location= './indexC.html';
         });
     }
+
+    function checkRegister() {
+
+        var name = document.getElementById('name');
+        var lastname = document.getElementById('lastname');
+        var cin = document.getElementById('cin');
+        var email = document.getElementById('email');
+        var pwd = document.getElementById('pwd');
+        var message = document.getElementById('message');
+            if(name.value=="")
+            {
+                message.innerHTML="Name field cannot be empty.";
+                message.style.opacity=1;
+                name.classList.add('error'); 
+                return false;
+            }
+              else if (name.value.charAt(0)!==name.value.charAt(0).toUpperCase())
+            {
+                message.innerHTML="Name's first character must be in uppercase.";
+                message.style.opacity=1;
+                name.classList.add('error');
+                return false;
+            } else if (name.value.length<3)
+            {
+                message.innerHTML="Name length must be atleast 3 characters.";
+                message.style.opacity=1;
+                name.classList.add('error'); 
+                return false;
+            } else {
+                message.innerHTML="";
+                name.classList.remove('error');
+            }
+
+            if (lastname.value=="")
+            {
+                message.innerHTML="Lastname field cannot be empty.";
+                message.style.opacity=1;
+                lastname.classList.add('error');
+                return false;
+            }
+             else if (lastname.value.charAt(0)!==lastname.value.charAt(0).toUpperCase())
+            {
+                message.innerHTML="Firstname's first character must be in uppercase.";
+                message.style.opacity=1;
+                lastname.classList.add('error');
+                return false;
+            } else if (lastname.value.length<3)
+            {
+                message.innerHTML="Lastname length must be atleast 3 characters.";
+                message.style.opacity=1;
+                lastname.classList.add('error'); 
+                return false;
+            } else {
+                message.innerHTML="";
+                lastname.classList.remove('error'); 
+            }
+            if (cin.value=="")
+            {
+                message.innerHTML="CIN field cannot be empty.";
+                message.style.opacity=1;
+                cin.classList.add('error');
+                return false;
+            } else 
+            {
+                message.innerHTML="";
+                cin.classList.remove('error'); 
+            }
+            
+            if (email.value=="")
+            {
+                message.innerHTML="Email field cannot be empty.";
+                message.style.opacity=1;
+                email.classList.add('error');
+                return false;
+            } else 
+            {
+                message.innerHTML="";
+                email.classList.remove('error'); 
+            }
+            
+            if (pwd.value=="")
+            {
+                message.innerHTML="Password field cannot be empty.";
+                message.style.opacity=1;
+                pwd.classList.add('error');  
+                return false;
+            }
+              else if (pwd.value.length<8)
+            {
+                message.innerHTML="Password length must be atleast 8 characters.";
+                message.style.opacity=1;
+                pwd.classList.add('error');   
+                return false;
+            } 
+            else {
+                message.innerHTML="";
+                password.classList.remove('error');
+            }
+    };
+
+
+function checkLogin() {
+    var email = document.getElementById('Email');
+    var pwd = document.getElementById('pwd');
+    var message = document.getElementById('message');
+
+    if (email.value=="")
+            {
+                message.innerHTML="Email field cannot be empty.";
+                message.style.opacity=1;
+                email.classList.add('error');
+                return false;
+            } else
+            {
+                message.innerHTML="";
+                email.classList.remove('error'); 
+            }
+            if (pwd.value=="")
+            {
+                message.innerHTML="Password field cannot be empty.";
+                message.style.opacity=1;
+                pwd.classList.add('error');  
+                return false;
+            }
+              else if (pwd.value.length<8)
+            {
+                message.innerHTML="Password length must be atleast 8 characters.";
+                message.style.opacity=1;
+                pwd.classList.add('error');   
+                return false;
+            } 
+            else {
+                message.innerHTML="";
+                password.classList.remove('error');
+            }
+}
+
+function makeid(length) {
+    var result           = '';
+    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+      result += characters.charAt(Math.floor(Math.random() * 
+ charactersLength));
+   }
+   return result;
+}
+
+function randomseed() {
+    var url = "https://avatars.dicebear.com/api/adventurer-neutral/";
+    var seed = makeid(5);
+    url+=seed;
+    url+=".svg?mood[]=happy&background=%23000000";
+    var profile = document.getElementById('profile');
+   // style="background: url('https://avatars.dicebear.com/api/adventurer-neutral/espritta.svg?mood[]=happy&background=%23000000');"
+    profile.style.background = "url('"+url+"')";
+    profile.addEventListener('click', () => {
+        window.location ='./userprofile.php';
+    })
+}
+
+function userprofile() {
+    var icon = document.getElementsByClassName("icon");
+    icon.addEventListener('click', () => {
+        window.location('./modifyuser.php');
+    })
+}
+
+function goToIndexC()
+{
+        location.href = "../Index/indexC.php";
+    
+}
+
+function earth() {
+    var planet = document.getElementById('planet');
+    planet.setAttribute('src','https://my.spline.design/untitledcopycopy-ca9a2e1d8f9e12d3da0d6cbef29839cb/');
+    var earth = document.getElementById('earth');
+    var mars = document.getElementById('mars');
+    var moon = document.getElementById('moon');
+    earth.classList.add('selected');
+    mars.classList.remove('selected');
+    moon.classList.remove('selected');
+}
+
+function mars() {
+    var planet = document.getElementById('planet');
+    planet.setAttribute('src','https://my.spline.design/untitled-8737add8819fa0ac73d43c6e22a00e55/');
+    var earth = document.getElementById('earth');
+    var mars = document.getElementById('mars');
+    var moon = document.getElementById('moon');
+    earth.classList.remove('selected');
+    mars.classList.add('selected');
+    moon.classList.remove('selected');
+}
+
+function moon() {
+    var planet = document.getElementById('planet');
+    planet.setAttribute('src','https://my.spline.design/untitledcopy-82502a1c88b7a1935ad89719a1779765/');
+    var earth = document.getElementById('earth');
+    var mars = document.getElementById('mars');
+    var moon = document.getElementById('moon');
+    earth.classList.remove('selected');
+    mars.classList.remove('selected');
+    moon.classList.add('selected');
+}
+function eventactive() {
+    var event = document.getElementById('event');
+    var shop = document.getElementById('shop');
+    var forum = document.getElementById('forum');
+    var hidden = document.getElementById('hiddenval');
+    hidden.value='event';
+        event.style.color = '#000000';
+        shop.style.color = '#A8A8A8';
+        forum.style.color = '#A8A8A8';
+    
+}
+function shopactive() {
+    var event = document.getElementById('event');
+    var shop = document.getElementById('shop');
+    var forum = document.getElementById('forum');
+    var hidden = document.getElementById('hiddenval');
+    hidden.value='shop';
+    event.style.color = '#A8A8A8';
+    shop.style.color = '#000000';
+    forum.style.color = '#A8A8A8';
+}
+function forumactive() {
+    var event = document.getElementById('event');
+    var shop = document.getElementById('shop');
+    var forum = document.getElementById('forum');
+    var hidden = document.getElementById('hiddenval');
+    hidden.value='forum';
+    event.style.color = '#A8A8A8';
+    shop.style.color = '#A8A8A8';
+    forum.style.color = '#000000';
+
+}
+
+function transporteractive() {
+    var transporter = document.getElementById('transporter');
+    var client = document.getElementById('client');
+    var hidden = document.getElementById('hiddenval');
+    hidden.value='event';
+    transporter.style.color = '#000000';
+    client.style.color = '#A8A8A8';
+    
+}
+function clientactive() {
+    var transporter = document.getElementById('transporter');
+    var client = document.getElementById('client');
+    var hidden = document.getElementById('hiddenval');
+    hidden.value='event';
+        transporter.style.color = '#A8A8A8';
+        client.style.color = '#000000';
+    
+}
+
+function addfriend() {
+    var search = document.getElementById('search');
+    var friend = document.getElementById('friend');
+    var chat = document.getElementById('chat');
+    var show = document.getElementById('friendcontainer');
+    var hide1 = document.getElementById('chatcontainer');
+    var hide2 = document.getElementById('searchcontainer');
+    search.classList.remove('active');
+    friend.classList.add('active');
+    chat.classList.remove('active');
+    hide1.style.display ='none';
+    hide2.style.display ='none';
+    show.style.display = 'block';
+}
+
+function chercher() {
+    var search = document.getElementById('search');
+    var friend = document.getElementById('friend');
+    var chat = document.getElementById('chat');
+    var show = document.getElementById('searchcontainer');
+    var hide1 = document.getElementById('chatcontainer');
+    var hide2 = document.getElementById('friendcontainer');
+    search.classList.add('active');
+    friend.classList.remove('active');
+    chat.classList.remove('active');
+    hide1.style.display ='none';
+    hide2.style.display ='none';
+    show.style.display = 'block';
+}
+
+function chat() {
+    var search = document.getElementById('search');
+    var friend = document.getElementById('friend');
+    var chat = document.getElementById('chat');
+    var hide1 = document.getElementById('searchcontainer');
+    var hide2 = document.getElementById('friendcontainer');
+    var show = document.getElementById('chatcontainer');
+    search.classList.remove('active');
+    friend.classList.remove('active');
+    chat.classList.add('active');
+    hide1.style.display ='none';
+    hide2.style.display ='none';
+    show.style.display = 'block';
+}
+
+/*function showNotification() {
+    var notification = document.getElementById('notification');
+        var notification_container = document.getElementById('notification_container');
+        var planets_div = document.getElementById('planets_div');
+        notification_container.style.display = 'flex';
+        planets_div.style.display = 'none';
+}
+
+function closeNotification() {
+    var notification = document.getElementById('close');
+        var notification_container = document.getElementById('notification_container');
+        var planets_div = document.getElementById('planets_div');
+        notification_container.style.display = 'none';
+        planets_div.style.display = 'flex';
+} */
+
+function profile(number,number2,url)
+{
+        if (url=='profile')
+    window.location = './profile.php?c='+number+'&u='+number2;
+    else
+    window.location = '../Profile/profile.php?c='+number+'&u='+number2;
+}
+
+function approve2(number,number2,id)
+{
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", "../../Controllers/Profile/approvetransporter.php?c=" + number+"&a="+number2, true);
+    xmlhttp.send();
+    var element = document.getElementById(id+'box-notifications').remove();
+    var nots = $(".number").html();
+    --nots;
+    $(".number").html(nots);
+    alert('User Approved!');
+}
+/*function approve(number,number2)
+{
+   window.location = './approvetransporter.php?c='+number+'&a='+number2;
+}*/
+
+/*function refuse(number,number2)
+{
+   window.location = './refusetransporter.php?c='+number+'&a='+number2;
+}*/
+
+function refuse2(number,number2,id)
+{
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", "../../Controllers/Profile/refusetransporter.php?c=" + number+'&a='+number2, true);
+    xmlhttp.send();
+    var element = document.getElementById(id+'box-notifications').remove();
+    var nots = $(".number").html();
+    --nots;
+    $(".number").html(nots);
+    alert('User Refused.');
+}
+function togglenotifications() {
+    $("#notification_container").toggle();
+    $("#planets_div").toggle();
+}
+
+function hidenotifications(number,id,i)
+{
+    var xmlhttp = new XMLHttpRequest();
+   // alert(id+'box-notifications');
+    xmlhttp.open("GET", "../../Controllers/Profile/hidenotification.php?c=" + number+'&id='+id, true);
+    xmlhttp.send();
+    var element = document.getElementById(i+'box-notificationsuser').remove();
+    var nots = $(".number").html();
+    --nots;
+    $(".number").html(nots);
+}
+
+
+function updateTransporter(gov,cin)
+{
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", "../../Controllers/Profile/updateTransporter.php?cin=" +cin+'&gov='+gov, true);
+    xmlhttp.send();
+    alert("Informations updated!");
+}
