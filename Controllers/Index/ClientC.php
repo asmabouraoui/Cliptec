@@ -66,7 +66,8 @@
 					'Name' => $client->name,
                     'Email' => $client->getEmail(),
                     'Password' => $client->getPassword()
-				]);			
+				]);	
+                
 			}
 			catch (Exception $e){
 				die('Erreur1: '.$e->getMessage());
@@ -77,11 +78,16 @@
 				$query->execute([
                     'CIN' => $client->getCIN(),
 				]);	
+
+                
 			}
 			catch (Exception $e){
 				die('Erreur2: '.$e->getMessage());
 			}
-            /** works fine register part */			
+            /** works fine register part */		
+            
+
+            
 		} else {
             $finalresult = "User already exists in the database.";
             return $finalresult;
