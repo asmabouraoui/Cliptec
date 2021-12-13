@@ -41,7 +41,7 @@
   </div>
 
    <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Description</label>
+    <label for="exampleInputPassword1" class="form-label">Image URL</label>
     <textarea type="text" class="form-control" name="img" required></textarea>
   </div>
 
@@ -76,7 +76,6 @@
           {
           	$e->getMessage();
           }
-
 	    }
     }
   }

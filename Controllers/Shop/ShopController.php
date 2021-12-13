@@ -112,3 +112,16 @@ class CommandeC
         }
     }
 }
+function supprimerProduit($id)
+{
+    $sql = "DELETE FROM products WHERE
+            id=:id";
+    $db = config::getConnexion();
+    $req = $db->prepare($sql);
+    $req->bindValue(':id', $id);
+    try {
+        $req->execute();
+    } catch (Exception $e) {
+        die('Erreur:' . $e->getMessage());
+    }
+}
