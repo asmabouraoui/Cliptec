@@ -88,7 +88,7 @@ if (isset($_POST['submit'])) {
           $email_content = array(
             'Subject' => 'EasyRocket Order confirmation',
             'body' => "Dear " . $firstName . " " . $lastName . PHP_EOL . "We are hereby confirming your order n:" . $getOrderID .
-              PHP_EOL . "Your total order price is :" . $totalPrice . "$" . PHP_EOL . "Thank you for the support"
+              PHP_EOL . "<br>Your total order price is :" . $totalPrice . "$" . PHP_EOL . "Thank you for the support"
           );
           sendemail($email, $email_content);
           header('location:thank-you.php');
