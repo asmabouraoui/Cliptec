@@ -1,7 +1,7 @@
 <?php
 
     include '././config.php';
-    include_once '././Model/Client.php';
+    include_once '././Models/Client.php';
 
     class ClientC {
         function register($client){
@@ -15,7 +15,7 @@
 			try{
 				$req->execute();
                 $value1 = $req->rowCount(); // number of results returned for cin = given cin in register.
-			}
+            }
 			catch(Exception $e){
 				die('Erreur:'. $e->getMessage());
 			}
