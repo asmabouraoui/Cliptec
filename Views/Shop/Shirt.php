@@ -1,19 +1,23 @@
 <?php
-// Get the 4 most recently added products
-$stmt = $pdo->prepare('SELECT * FROM products ORDER BY date_added DESC LIMIT 4');
-$stmt->execute();
-$recently_added_products = $stmt->fetchAll(PDO::FETCH_ASSOC);
-?>
-<?=template_header('Home')?>
+include_once 'functions.php';
 
-<div class="featured">
-    <h2>Products</h2>
-    <p>Essential products for everyday use</p>
-</div>
-<div class="recentlyadded content-wrapper">
-    <h2>Recently Added Products</h2>
-    <div class="products">
-        <?php foreach ($recently_added_products as $product): ?>
+
+$chercher = 'Shirt';
+$selection = $pdo->prepare("SELECT * FROM products WHERE name like '%$chercher%'");
+$selection->execute();
+$products = $selection->fetchAll(PDO::FETCH_ASSOC);
+
+
+$total_products = $pdo->query("SELECT * FROM products WHERE name like '%$chercher%'")->rowCount();
+?>
+
+<?=template_header('Products')?>
+
+<div class="products content-wrapper">
+    <h1>Products</h1>
+    <p><?=$total_products?> Products</p>
+    <div class="products-wrapper">
+        <?php foreach ($products as $product): ?>
         <a href="index.php?page=product&id=<?=$product['id']?>" class="product">
             <img src="imgs/<?=$product['img']?>" width="200" height="200" alt="<?=$product['name']?>">
             <span class="name"><?=$product['name']?></span>
@@ -26,6 +30,4 @@ $recently_added_products = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </a>
         <?php endforeach; ?>
     </div>
-</div>
-
-<?=template_footer()?>
+	<?=template_footer()?>
