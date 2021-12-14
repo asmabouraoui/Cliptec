@@ -1,17 +1,8 @@
 <?php
-include_once '../../config.php';
-$sql = "SELECT * from products";
-$db = config::getConnexion();
-$req = $db->prepare($sql);
-try {
-  $req->execute();
-} catch (Exception $e) {
-  die('Erreur:' . $e->getMessage());
-  header("Location:indexC.php?code=errorDB");
-}
-$products = $req->fetchAll(PDO::FETCH_ASSOC);
-$total_products = $req->rowCount();
-$product
+include '../../Controllers/Shop/ShopController.php';
+$commandeC = new CommandeC();
+$listeCommandes = $commandeC->affichercommandes();
+$total_orders = $listeCommandes->rowCount();
 ?>
 
 
@@ -67,14 +58,14 @@ $product
       </div>
       <div class="projects-section">
         <div class="projects-section-header">
-          <p>Store</p>
+          <p>Orders</p>
           <p class="time"><?php echo (date('Y-m-d')) ?></p>
         </div>
         <div class="projects-section-line">
           <div class="projects-status">
             <div class="item-status">
-              <span class="status-number"><?php echo $total_products; ?></span>
-              <span class="status-type">Total items</span>
+              <span class="status-number"><?php echo $total_orders; ?></span>
+              <span class="status-type">Total orders</span>
             </div>
           </div>
           <div class="view-actions">
@@ -88,28 +79,55 @@ $product
             </button>
           </div>
         </div>
-        <div class="project-boxes jsGridView">
-          <?php foreach ($products as $product) : ?>
-            <div class="project-box-wrapper">
-              <div class="project-box" style="background-image :url('../Shop/imgs/<?php echo $product['img'] ?>'); background-size: cover; background-position:-100px 0;">
-                <div class="project-box-header">
-                  <span></span>
-                  <div class="more-wrapper">
-                  </div>
-                </div>
-                <div class="project-box-content-header">
-                  <p class="box-content-header" style="color:#ff5757"><?php echo $product['name']; ?></p>
-                  <p class="box-content-subheader" style="color:#ff5757"><?php echo $product['price'] ?> &dollar;</p>
-                </div>
-              </div>
-            </div>
-          <?php endforeach; ?>
-        </div><center>
-        <a href="#"><button>Products</button></a>
-        <a href="http://localhost/Cliptec/Views/Dashboard/dashboard-orders.php"><button>Orders</button></a>
+        <div class="products">
+		<h1>Order List</h1>
+		<table class="elements">
+			<tr>
+				<th>Order ID</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Email</th>
+				<th>Adress</th>
+				<th>Adress2</th>
+				<th>Country</th>
+				<th>State</th>
+				<th>Zipcode</th>
+				<th>Total Price</th>
+				<th>Order Status</th>
+				<th>Date Created</th>
+				<th>Delete Order</th>
+				<th>Update Order</th>
+			</tr>
+			<?php
+			foreach ($listeCommandes as $commande) {
+			?>
+				<tr>
+					<td><?php echo $commande['id']; ?></td>
+					<td><?php echo $commande['first_name']; ?></td>
+					<td><?php echo $commande['last_name']; ?> </td>
+					<td><?php echo $commande['email']; ?></td>
+					<td><?php echo $commande['address']; ?></td>
+					<td><?php echo $commande['address2']; ?></td>
+					<td><?php echo $commande['country']; ?></td>
+					<td><?php echo $commande['state']; ?></td>
+					<td><?php echo $commande['zipcode']; ?></td>
+					<td><?php echo $commande['total_price']; ?><span class="price">$</span></td>
+					<td><?php echo $commande['order_status']; ?></td>
+					<td><?php echo $commande['created_at']; ?></td>
+					<td><a style = "color:black; font-weight:bold"href="supprimercommande.php?idCommande=<?php echo $commande['id']; ?>">Delete</a></td>
+					<td>
+						<a style = "color:black; font-weight:bold"href="modifierCommande.php?idCommande=<?php echo $commande['id']; ?>">Update</a>
+					</td>
+				</tr>
+			<?php
+			}
+			?>
+		</table>
+	</div>
+      <center>
+        <a href="http://localhost/Cliptec/Views/Dashboard/dashboard-store.php"><button>Products</button></a>
+        <a href="#"><button>Orders</button></a>
       </center>
-      </div>
-      
 
     </div>
 
