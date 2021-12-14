@@ -69,9 +69,9 @@ $user = $result->fetch(PDO::FETCH_ASSOC);
         <a href="#" class="app-sidebar-link active">
           <span class="material-icons">shopping_cart</span>
         </a>
-        <a href="dashboard-events.php" class="app-sidebar-link">
+        <a href="../Events/events/view/dashboard-events.php" class="app-sidebar-link">
           <span class="material-icons">confirmation_number</span>
-        </a><br><br><br><br><br><br><br><br><br><br><br>
+        </a><br><br><br><br><br><br><br>
         <a href="./indexC.php" class="app-sidebar-link">
           <span class="material-icons">keyboard_return</span>
         </a>
