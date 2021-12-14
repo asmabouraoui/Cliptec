@@ -1,6 +1,5 @@
 <?php
 include '../../Controllers/Shop/mail.php';
-session_start();
 
 if (!isset($_SESSION['cart_items']) || empty($_SESSION['cart_items'])) {
   header('location:index.php');
