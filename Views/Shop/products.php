@@ -10,6 +10,7 @@ $stmt->bindValue(1, ($current_page - 1) * $num_products_on_each_page, PDO::PARAM
 $stmt->bindValue(2, $num_products_on_each_page, PDO::PARAM_INT);
 $stmt->execute();
 // Fetch the products from the database and return the result as an Array
+
 $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 // Get the total number of products

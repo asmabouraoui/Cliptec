@@ -40,10 +40,10 @@ echo <<<EOT
             </a>
             <nav class="container-1">
                 <ul>
-                    <li><a href="#">Mens</a></li>
-                    <li><a href="#">Womens</a></li>
-                    <li><a href="#">Kids</a></li>
-                    <li><a href="#">Accessories</a></li>
+                    <li><a href="index.php?page=Shirt">Shirts</a></li>
+                    <li><a href="index.php?page=Beenies">Beenies</a></li>
+                    <li><a href="index.php?page=Masks">Masks</a></li>
+                    <li><a href="index.php?page=Pen">Accessories</a></li>
                     <li><a href="index.php?page=products">Products</a></li>
                     <li><a href="#">Account</a></li>
                     <li><a href="#">Search</a></li>
