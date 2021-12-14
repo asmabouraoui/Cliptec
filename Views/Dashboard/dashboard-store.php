@@ -40,7 +40,7 @@
             <a href="#" class="app-sidebar-link active">
                 <span class="material-icons">shopping_cart</span>
             </a>
-            <a href="dashboard-events.php" class="app-sidebar-link">
+            <a href="../Tickets/index.php" class="app-sidebar-link">
                 <span class="material-icons">confirmation_number</span>
             </a><br><br><br><br><br><br><br><br><br><br><br>
             <a href="./indexC.php" class="app-sidebar-link">
