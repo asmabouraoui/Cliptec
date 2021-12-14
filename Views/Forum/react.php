@@ -4,7 +4,7 @@ session_start();
 
 //$user_id = $_SESSION['user']->user_id;  
 
-$id=$_GET['id'];
+$id=$_SESSION['id'];
 $questionC = new QuestionC();
 $listeQuestions = $questionC->afficher_questions($id);
 ?>
@@ -114,10 +114,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
     </div>
    
-    <form action="ajoutercomment.php?id=<?php echo $_GET['id'] ?>" method="post">
+    <form action="ajoutercomment.php?id=<?php echo $_SESSION['id'] ?>" method="post">
     <!--Comment Area-->
     <div class="comment-area hide" id="comment-area">
-        <input type="text" name="username" placeholder="your name..">
+        <input type="text" name="username" placeholder="your name.." value="<?php echo $_SESSION['name'].' '.$_SESSION['lastname'];?>">
         <textarea name="comment" id="" placeholder="comment here ... "></textarea>
         <input type="submit" value="submit">
     </div>
