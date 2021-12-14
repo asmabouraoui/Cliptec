@@ -19,7 +19,7 @@
     <div class="container">
 
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-      	
+     <middle> 	
 <form method="post">
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Titre de l'name</label>
@@ -50,7 +50,7 @@
 
       </div></div></div>
 
-    
+      </middle>
 </body>
 </html>
 
