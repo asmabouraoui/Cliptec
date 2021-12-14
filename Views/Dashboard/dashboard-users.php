@@ -77,6 +77,9 @@ $sql ="SELECT DISTINCT(Governorat), count(*) as Total FROM livreurs group by Gov
             <a href="" class="app-sidebar-link active">
                 <span class="material-icons">people</span>
             </a>
+            <a href="" class="app-sidebar-link">
+                <span class="material-icons">forum</span>
+            </a>
             <a href="./dashboard-store.php" class="app-sidebar-link">
                 <span class="material-icons">shopping_cart</span>
             </a>

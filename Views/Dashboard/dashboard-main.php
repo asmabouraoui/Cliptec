@@ -59,6 +59,9 @@ $ClientList= $ClientC->showExistingUsers();
             <a href="./dashboard-users.php" class="app-sidebar-link">
                 <span class="material-icons">people</span>
             </a>
+            <a href="" class="app-sidebar-link">
+                <span class="material-icons">forum</span>
+            </a>
             <a href="./dashboard-store.php" class="app-sidebar-link">
                 <span class="material-icons">shopping_cart</span>
             </a>
