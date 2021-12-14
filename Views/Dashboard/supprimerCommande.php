@@ -1,0 +1,5 @@
+<?php
+include '../../Controllers/Shop/ShopController.php';
+$commandeC = new CommandeC();
+$commandeC->supprimercommande($_GET["idCommande"]);
+header('Location:dashboard-orders.php');
