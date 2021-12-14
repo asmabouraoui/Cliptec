@@ -1,6 +1,7 @@
 <?php
  require_once "../controller/carteC.php" ; 
 require_once "../model/carte.php" ;
+session_start();
 ?>
 <html>
 
@@ -42,7 +43,7 @@ require_once "../model/carte.php" ;
     <header class="">
       <nav class="navbar navbar-expand-lg">
         <div class="container">
-          <a class="navbar-brand" href="index.html"><h2>Easy Rocket</h2></a>
+          <a class="navbar-brand" href="../../frontindex.html"><h2>Easy Rocket</h2></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -103,14 +104,14 @@ require_once "../model/carte.php" ;
         <label for="nom">Nom:
         </label>
     </td>
-    <td><input type="text" class="form-control" name="nom" id="nom" maxlength="20" ></td>
+    <td><input type="text" class="form-control" name="nom" id="nom" maxlength="20" value="<?php echo $_SESSION['name'];?>"></td>
 </tr>
 <tr>
     <td>
         <label for="prenom">Prenom:
         </label>
     </td>
-    <td><input type="text" class="form-control" name="prenom" id="prenom" maxlength="20" ></td>
+    <td><input type="text" class="form-control" name="prenom" id="prenom" maxlength="20" value="<?php echo $_SESSION['lastname'];?>"></td>
 </tr>
 <tr>
     <td>

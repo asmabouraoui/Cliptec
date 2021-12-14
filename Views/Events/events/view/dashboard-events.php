@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once "./Controller/participationC.php";
 //include_once '../config.php';
 include_once './controller/servicec.php';
@@ -42,32 +43,35 @@ $listecarte=$carte->affichercarte();
               </svg>
             </button>
             <button class="profile-btn" style="pointer-events: none;">
-              <span>Sarah</span>
+              <span><?php echo $_SESSION['name'].' '.$_SESSION['lastname']; ?></span>
             </button>
           </div>
         </div>
         <div class="app-content">
           <div class="app-sidebar">
-            <a href="./dashboard-main.php" class="app-sidebar-link">
+            <a href="../../../Dashboard/dashboard-main.php" class="app-sidebar-link">
                 <span class="material-icons">home</span>
             </a>
-            <a href="" class="app-sidebar-link">
+            <a href="../../../Dashboard/dashboard-users.php" class="app-sidebar-link">
                 <span class="material-icons">people</span>
             </a>
-            <a href="./dashboard-store.html" class="app-sidebar-link">
+            <a href="" class="app-sidebar-link">
+                <span class="material-icons">forum</span>
+            </a>
+            <a href="../../../Dashboard/dashboard-store.php" class="app-sidebar-link">
                 <span class="material-icons">shopping_cart</span>
             </a>
-            <a href="./dashboard-events.html" class="app-sidebar-link">
+            <a href="" class="app-sidebar-link active">
                 <span class="material-icons">confirmation_number</span>
-            </a><br><br><br><br><br><br><br><br><br><br><br>
-            <a href="./indexC.php" class="app-sidebar-link">
+            </a><br><br><br><br><br><br><br>
+            <a href="../../../Index/IndexC.php" class="app-sidebar-link">
                 <span class="material-icons">keyboard_return</span>
             </a>
           </div>
           <div class="projects-section">
             <div class="projects-section-header">
               <p>Events</p>
-              <p class="time">November, 11</p>
+              <p class="time"><?php echo date('d F Y');?></p>
             </div>
             <div class="projects-section-line">
               <div class="projects-status">

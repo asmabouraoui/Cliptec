@@ -88,7 +88,7 @@ $_SESSION['CIN'] = $cin;
         <img src="../../assets/images/logo black bg-trimmy.png" alt="" srcset="">
         <ul>
             <a class="list" href="../Forum/Forum.php"><li>Forum</li></a>
-            <a class="list" href="../../frontindex.html"><li>Events</li></a>
+            <a class="list" href="../Events/events/frontindex.html"><li>Events</li></a>
             <a class="list" href="../Shop/index.php"><li>Shop</li></a>
             <?php 
                 if ($user['Role']=='Admin')

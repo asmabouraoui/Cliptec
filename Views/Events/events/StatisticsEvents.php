@@ -1,6 +1,6 @@
 <?php 
 //index.php
-$connect = mysqli_connect("localhost", "root", "", "evennement");
+$connect = mysqli_connect("localhost", "root", "", "cliptec");
 
 $query = "SELECT * FROM evennement";
 $result = mysqli_query($connect, $query);
@@ -100,7 +100,7 @@ $chart_data = substr($chart_data, 0, -2);
     
  <br /><br />
    <div class="container" style="width:900px;">
-   <h3 align="center" style="color:#ac030a"> idE per nbrt Data</h3>   
+   <h3 align="center" style="color:#ac030a"> (idE) per (nbrt) Data</h3>   
  <br /><br />
    <div id="chart"></div>
   </div>
@@ -159,7 +159,7 @@ $chart_data = substr($chart_data, 0, -2);
                         
                         <div class="copyright">
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </div>
                     </div>
