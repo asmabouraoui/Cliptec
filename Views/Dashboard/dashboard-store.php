@@ -57,24 +57,27 @@ $user = $result->fetch(PDO::FETCH_ASSOC);
     </div>
     <div class="app-content">
       <div class="app-sidebar">
-        <a href="dashboard-main.php" class="app-sidebar-link">
-          <span class="material-icons">home</span>
+      <a href="./dashboard-main.php" class="app-sidebar-link">
+                <span class="material-icons">home</span>
+            </a>
+            <a href="./dashboard-users.php" class="app-sidebar-link">
+                <span class="material-icons">people</span>
+            </a>
+            <a href="../forum/dashboard-forum.php" class="app-sidebar-link">
+                <span class="material-icons">forum</span>
+            </a>
+            <a href="#" class="app-sidebar-link active">
+                <span class="material-icons">shopping_cart</span>
+            </a>
+            <a href="../Events/events/view/dashboard-events.php" class="app-sidebar-link">
+                <span class="material-icons">confirmation_number</span>
+            </a>
+            <a href="../Tickets/index.php" class="app-sidebar-link">
+          <span class="material-icons">book_online</span>
         </a>
-        <a href="dashboard-users.php" class="app-sidebar-link">
-          <span class="material-icons">people</span>
-        </a>
-        <a href="" class="app-sidebar-link">
-          <span class="material-icons">forum</span>
-        </a>
-        <a href="#" class="app-sidebar-link active">
-          <span class="material-icons">shopping_cart</span>
-        </a>
-        <a href="../Events/events/view/dashboard-events.php" class="app-sidebar-link">
-          <span class="material-icons">confirmation_number</span>
-        </a><br><br><br><br><br><br><br>
-        <a href="./indexC.php" class="app-sidebar-link">
-          <span class="material-icons">keyboard_return</span>
-        </a>
+            <a href="../Index/indexC.php" class="app-sidebar-link">
+                <span class="material-icons">keyboard_return</span>
+            </a>
       </div>
       <div class="projects-section">
         <div class="projects-section-header">
@@ -99,33 +102,48 @@ $user = $result->fetch(PDO::FETCH_ASSOC);
             </button>
           </div>
         </div>
-        <div class="project-boxes jsGridView">
-          <?php foreach ($products as $product) : ?>
-            <div class="project-box-wrapper">
-              <div class="project-box" style="background-image :url('../Shop/imgs/<?php echo $product['img'] ?>'); background-size: cover; background-position:-100px 0;">
-                <div class="project-box-header">
-                  <span></span>
-                  <div class="more-wrapper">
-                  </div>
-                </div>
-                <div class="project-box-content-header">
-                  <p class="box-content-header" style="color:#ff5757"><?php echo $product['name']; ?></p>
-                  <p class="box-content-subheader" style="color:#ff5757"><?php echo $product['price'] ?> &dollar;</p>
+      </div>
+      <div class="project-boxes jsGridView">
+        <?php foreach ($products as $product) : ?>
+          <div class="project-box-wrapper">
+            <div class="project-box" style="background-image :url('../Shop/imgs/<?php echo $product['img'] ?>'); background-size: cover; background-position:-100px 0;">
+              <div class="project-box-header">
+                <span></span>
+                <div class="more-wrapper">
                 </div>
               </div>
+              <div class="project-box-content-header">
+                <p class="box-content-header" style="color:#ff5757"><?php echo $product['name']; ?></p>
+                <p class="box-content-subheader" style="color:#ff5757"><?php echo $product['price'] ?> &dollar;</p>
+              </div>
             </div>
-          <?php endforeach; ?>
-        </div>
-        <center>
-          <a href="#"><button>Products</button></a>
-          <a href="./dashboard-orders.php"><button>Orders</button></a>
-        </center>
+          </div>
+        <?php endforeach; ?>
+
       </div>
 
+      <center>
+        <a href="#"><button>Products</button></a>
+        <a href="./dashboard-orders.php"><button>Orders</button></a>
+      </center>
 
+    </div>
+    <div class="per">
+      <a href="supprimerProduit.php"><button>Supprimer</button></a>
+      <a href="produit.php"><button>ajouter produit</button></a>
     </div>
 
   </div>
+
 </body>
 
 </html>
+<style>
+  button{
+    position: relative;
+    background-color: #ff5757;
+background-image: lightskyblue;
+background-size: 10px;
+text-decoration: double;
+  }
+</style>

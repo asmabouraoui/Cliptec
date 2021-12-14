@@ -55,7 +55,7 @@ $listecarte=$carte->affichercarte();
             <a href="../../../Dashboard/dashboard-users.php" class="app-sidebar-link">
                 <span class="material-icons">people</span>
             </a>
-            <a href="" class="app-sidebar-link">
+            <a href="../../../forum/dashboard-forum.php" class="app-sidebar-link">
                 <span class="material-icons">forum</span>
             </a>
             <a href="../../../Dashboard/dashboard-store.php" class="app-sidebar-link">
@@ -63,7 +63,10 @@ $listecarte=$carte->affichercarte();
             </a>
             <a href="" class="app-sidebar-link active">
                 <span class="material-icons">confirmation_number</span>
-            </a><br><br><br><br><br><br><br>
+            </a>
+            <a href="../../../Tickets/index.php" class="app-sidebar-link">
+          <span class="material-icons">book_online</span>
+        </a>
             <a href="../../../Index/IndexC.php" class="app-sidebar-link">
                 <span class="material-icons">keyboard_return</span>
             </a>
