@@ -28,6 +28,7 @@ $_SESSION['CIN'] = $cin;
  $_SESSION['name']=$user['NAME'];
  $_SESSION['lastname']=$user['Lastname'];
  $_SESSION['online']=$user['Online'];
+ $_SESSION['id']=$user['ID_C'];
 //
  $_SESSION['role']=$user['Role'];
  include_once '../../config.php';

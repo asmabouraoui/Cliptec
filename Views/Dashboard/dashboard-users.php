@@ -4688,7 +4688,11 @@ $sql ="SELECT DISTINCT(Governorat), count(*) as Total FROM livreurs group by Gov
              <p class="governorat" id="'.$state['Governorat'].'">'.$state['Governorat'].'</p>
              <p class="total">'.$state['Total'].'</p>
            </div>' ;
-            }
+            } 
+            if ($req->rowCount()==0)
+            echo '<div class="containerinner">
+             <p class="governorat" style="cursor: auto;">No transporters<br>at the moment.</p>
+           </div>' ;
               ?>
           </div>
                   </div>

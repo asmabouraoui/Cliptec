@@ -5,7 +5,7 @@ p {margin: 0;}
 html, body{
    font-family: 'PT Sans Narrow', sans-serif;
    font-size: 100%;
-   background:#080808; 
+   background:#ffffff; 
 }
 body a{
 	transition:0.5s all;
@@ -2799,6 +2799,9 @@ a.b-home {
 	border-bottom: 1px solid #ff5757;
     color: lightgray;
 }
+.subforum-title h1 {
+	color: black;
+}
 
 .subforum-row{
     display: grid;
@@ -2809,7 +2812,7 @@ a.b-home {
     padding: 20px;
     margin:8px;
     border-radius: 5px;
-    background-color:#111314;
+    background-color:#000000;
 	color: lightgray;
 }
 
@@ -2929,5 +2932,91 @@ a:hover {
     margin-bottom: 2%;
 }
 
+.p-myPosts a {
+	color: black;
+}
+
+.p-myPosts a:hover {
+	color: #ff5757;
+}
+
+header {
+    width: 100%;
+    height: 80px;
+    background: #000000;
+    position: absolute;
+    top: 0;
+    display: flex;
+    padding: 0px 5%;
+    align-items: center;
+	justify-content: space-evenly;
+}
+
+header img {
+    max-width: auto;
+    height: 30%;
+    padding-right: 10%;
+}
+
+li {
+    display: inline;
+    font-size: 14px;
+    font-weight: bold;
+    margin-right: 3em;
+    letter-spacing: 0.2px;
+    color: whitesmoke;
+}
 
 
+.list:hover {
+    transition: 0.12s ease-in-out;
+    text-decoration: underline;
+    text-decoration-color: #ffffff;
+    text-decoration-thickness: 2px;
+}
+
+
+a {
+    text-decoration: none;
+    color: rgb(141, 141, 141);
+    font-family: 'DM Sans', sans-serif;
+}
+.buttons-container {
+    display: flex;
+    position: absolute;
+    top: 38.5%;
+    right: 7%;
+    z-index: 10;
+}
+button {
+    background: black;
+    border: 1px solid #ffffff;
+    padding: 10px 15px;
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: bold;
+    margin-right: 10px;
+    font-size: 12px;
+    border-radius: 2px;
+}
+button:hover {
+    background: white;
+    color: black;
+    border: 1px solid #000000;
+    cursor: pointer;
+}
+
+.bg-image {
+	width: 100vw;
+	height: 50vh;
+	background: red;
+	display: block;
+	background-image: url('../../images/Forum/3.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	box-shadow: 3px 3px 30px 0px #000000;
+
+}
+form input {
+	z-index: 1;
+}
