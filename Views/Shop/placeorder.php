@@ -1,5 +1,6 @@
 <?php
 include '../../Controllers/Shop/mail.php';
+session_start();
 
 if (!isset($_SESSION['cart_items']) || empty($_SESSION['cart_items'])) {
   header('location:index.php');
@@ -200,17 +201,17 @@ $metaDesc = '';
         <div class="row">
           <div class="col-md-6 mb-3">
             <label for="firstName">First name</label>
-            <input type="text" class="form-control" id="firstName" name="first_name" placeholder="First Name" value="<?php echo (isset($fnameValue) && !empty($fnameValue)) ? $fnameValue : '' ?>">
+            <input type="text" class="form-control" id="firstName" name="first_name" placeholder="First Name" value="<?php echo $_SESSION['name']; ?>">
           </div>
           <div class="col-md-6 mb-3">
             <label for="lastName">Last name</label>
-            <input type="text" class="form-control" id="lastName" name="last_name" placeholder="Last Name" value="<?php echo (isset($lnameValue) && !empty($lnameValue)) ? $lnameValue : '' ?>">
+            <input type="text" class="form-control" id="lastName" name="last_name" placeholder="Last Name" value="<?php echo $_SESSION['lastname'];?>">
           </div>
         </div>
 
         <div class="mb-3">
           <label for="email">Email</label>
-          <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" value="<?php echo (isset($emailValue) && !empty($emailValue)) ? $emailValue : '' ?>">
+          <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" value="<?php echo $_SESSION['email']; ?>">
         </div>
 
         <div class="mb-3">

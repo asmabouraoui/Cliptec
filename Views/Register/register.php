@@ -1,6 +1,7 @@
 <?php
     include_once '../../Models\Client.php';
     include_once '../../Controllers/Profile/ClientC.php';
+    include './mail.php';
     
 
     $error = "";
@@ -39,8 +40,22 @@
                 ""
             );
             $result = $clientC->register($client);
-            if ($result=="")
-            header("Location:../Login/login.php");
+            if ($result=="") {
+                /* send mail */
+                $email = $client->getEmail();
+                $path = "https://i.ibb.co/2Y3g8Bf/logo-white-bg.png";
+                $email_content = array(
+                    'Subject' => 'Registration confirmation',
+                    'body' => "<b>Dear " . $client->name . " " . $client->lastname .  "</b>,<br>We are hereby confirming your successful registration to Easyrocket's platform!<br><b>Thank you for the support.</b><br><img src='$path'>"
+                  );
+                  sendemail($email, $email_content);
+
+                /* end send mail */
+
+            header("Location:../Login/login.php"); 
+            
+            
+            }
             else {
                header("Location:register.php?err_message=$result");
         }

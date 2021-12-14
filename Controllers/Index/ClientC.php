@@ -1,7 +1,7 @@
 <?php
 
     include '././config.php';
-    include_once '././Model/Client.php';
+    include_once '././Models/Client.php';
 
     class ClientC {
         function register($client){
@@ -15,7 +15,7 @@
 			try{
 				$req->execute();
                 $value1 = $req->rowCount(); // number of results returned for cin = given cin in register.
-			}
+            }
 			catch(Exception $e){
 				die('Erreur:'. $e->getMessage());
 			}
@@ -66,7 +66,8 @@
 					'Name' => $client->name,
                     'Email' => $client->getEmail(),
                     'Password' => $client->getPassword()
-				]);			
+				]);	
+                
 			}
 			catch (Exception $e){
 				die('Erreur1: '.$e->getMessage());
@@ -77,11 +78,16 @@
 				$query->execute([
                     'CIN' => $client->getCIN(),
 				]);	
+
+                
 			}
 			catch (Exception $e){
 				die('Erreur2: '.$e->getMessage());
 			}
-            /** works fine register part */			
+            /** works fine register part */		
+            
+
+            
 		} else {
             $finalresult = "User already exists in the database.";
             return $finalresult;
