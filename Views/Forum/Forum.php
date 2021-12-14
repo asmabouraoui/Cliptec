@@ -1,6 +1,8 @@
 <?php
 include_once('../../Controllers/Forum/questionC.php');
 
+session_start();
+
 //$user_id = $_SESSION['user']->user_id;  
 
 $db=config::getConnexion();
@@ -47,46 +49,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 
 <body>
-	<div class="men_banner">
-   	  <div class="container">
-   	  	<div class="header_top">
-   	  	   <div class="header_top_left">
-			
-			<h1><img class="logo_img" src="./../../assets/images/Forum/logo black bg.png"  alt="easyrocket logo"></h1>
-	 
-			      </div>
-           <div class="header_top_right">
-		  	
-			 <ul class="header_user_info">
-			  <a class="login" href="../Home/login.html">
-				<i class="user"> </i> 
-				<li class="user_desc">My Account</li>
-			  </a>
-			  <div class="clearfix"> </div>
-		     </ul>
-		  
-		            <div class="clearfix"> </div>
-			 </div>
-		     <div class="clearfix"> </div>
-	   </div>
-   	  <div class="header_bottom">
-	   <div class="logo">
-		  <h1><a href="#">Forum</a></h1>
-	   </div>
-	   <div class="menu">
-	     <ul class="megamenu skyblue">
-			    <li><a class="color2" href="../Home/index.html">Home</a></li>
-		    	<li><a class="color4" href="#">Events</a></li>				
-				<li class="active grid"><a class="color10" href="Forum.php">Forum</a></li>
-				<li><a class="color3" href="../Home/index.html">Tickets</a></li>
-				<li><a class="color7" href="#">Shop</a></li>
-				<div class="clearfix"> </div>
-			</ul>
-			</div>
-	        <div class="clearfix"> </div>
-	    </div>
-	   </div>
-   </div>
+<script script src="../../assets/javascript/Home/script.js"></script>
+<header>
+        <img id="easyrocket" src="../../assets/images/logo black bg-trimmy.png" alt="" srcset="" onclick="goToIndexC()">
+        <ul>
+            <a class="list" href="../Forum/Forum.php"><li>Forum</li></a>
+            <a class="list" href="#"><li>Events</li></a>
+            <a class="list" href="../Shop/index.php"><li>Shop</li></a>
+            <?php 
+                if ($_SESSION['role']=='Admin')
+                    echo '<a class="list" href="../Dashboard/dashboard-main.php"><li>Dashboard</li></a>';
+            ?>
+        </ul>
+        <div class="buttons">
+       <a href="../Profile/userprofile.php"><button type="button">Profile</button></a>
+       <a href="../../Controllers\Profile\endsession.php"><button type="button">Log out</button></a>  
+    </header>
+    <div class="bg-image">
+        
+    </div>
    <div class="men">
         <!-- start search-->
         <!-- <div class="search-box">
@@ -110,7 +91,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <form  method="post" action="rech.php">
                            <input type="text" name="nom"  value="">
                               
-                           <button type="submit" name="Ajouter" class="btn btn-danger">Search events</button>
+                           <button type="submit" name="Ajouter" class="btn btn-danger">Search</button>
                          </form>
 </div>
     <p class="p-myPosts">

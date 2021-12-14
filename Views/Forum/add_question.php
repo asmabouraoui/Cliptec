@@ -1,7 +1,7 @@
 <?php
 
 include_once('../../Controllers/Forum/questionC.php');
-
+session_start();
 
 $questionC = new QuestionC();
         
@@ -15,7 +15,7 @@ if( isset($_POST["topic"])
         $question_date = date("d/m/Y - h:i:s A");
 
         //$user_id = $_SESSION['user']->user_id;  
-        $user_id = 1;
+        $user_id = $_SESSION['id'];
 
         $question = new Question($topic, $questiontitle, $questioncontent, $question_date, $user_id );
     
