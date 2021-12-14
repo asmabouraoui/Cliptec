@@ -1,9 +1,10 @@
 <?php
 include_once('../../Controllers/Forum/questionC.php');
+session_start();
 
 //$user_id = $_SESSION['user']->user_id;  
 
-$id=$_GET['id'];
+$id=$_SESSION['id'];
 $questionC = new QuestionC();
 $listeQuestions = $questionC->afficher_questions($id);
 ?>
@@ -47,46 +48,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="./../../assets/javascript/Forum/simpleCart.min.js"> </script>
 </head>
 <body>
-	<div class="men_banner">
-   	  <div class="container">
-   	  	<div class="header_top">
-   	  	   <div class="header_top_left">
-			
-			<h1><img class="logo_img" src="./../../assets/images/Forum/logo black bg.png"  alt="easyrocket logo"></h1>
-	 
-			      </div>
-           <div class="header_top_right">
-		  	
-			 <ul class="header_user_info">
-			  <a class="login" href="../Home/login.html">
-				<i class="user"> </i> 
-				<li class="user_desc">My Account</li>
-			  </a>
-			  <div class="clearfix"> </div>
-		     </ul>
-		  
-		            <div class="clearfix"> </div>
-			 </div>
-		     <div class="clearfix"> </div>
-	   </div>
-   	  <div class="header_bottom">
-	   <div class="logo">
-		  <!-- <h1><a href="#">Forum</a></h1> -->
-	   </div>
-	   <div class="menu">
-	     <ul class="megamenu skyblue">
-			    <li><a class="color2" href="../Home/index.html">Home</a></li>
-		    	<li><a class="color4" href="#">Events</a></li>				
-				<li class="active grid"><a class="color10" href="Forum.html">Forum</a></li>
-				<li><a class="color3" href="../Home/index.html">Tickets</a></li>
-				<li><a class="color7" href="#">Shop</a></li>
-				<div class="clearfix"> </div>
-			</ul>
-			</div>
-	        <div class="clearfix"> </div>
-	    </div>
-	   </div>
-   </div>
+<header>
+        <img id="easyrocket" src="../../assets/images/logo black bg-trimmy.png" alt="" srcset="" onclick="goToIndexC()">
+        <ul>
+            <a class="list" href="../Forum/Forum.php"><li>Forum</li></a>
+            <a class="list" href="#"><li>Events</li></a>
+            <a class="list" href="../Shop/index.php"><li>Shop</li></a>
+            <?php 
+                if ($_SESSION['role']=='Admin')
+                    echo '<a class="list" href="../Dashboard/dashboard-main.php"><li>Dashboard</li></a>';
+            ?>
+        </ul>
+        <div class="buttons">
+       <a href="../Profile/userprofile.php"><button type="button">Profile</button></a>
+       <a href="../../Controllers\Profile\endsession.php"><button type="button">Log out</button></a>  
+    </header>
+    <div class="bg-image">
+        
+    </div>
    <div class="men">
     <p class="p-myPosts">
         <a href="Forum.php"><i class="fa fa-pencil-square-o"></i>Back</a>
@@ -135,10 +114,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
     </div>
    
-    <form action="ajoutercomment.php?id=<?php echo $_GET['id'] ?>" method="post">
+    <form action="ajoutercomment.php?id=<?php echo $_SESSION['id'] ?>" method="post">
     <!--Comment Area-->
     <div class="comment-area hide" id="comment-area">
-        <input type="text" name="username" placeholder="your name..">
+        <input type="text" name="username" placeholder="your name.." value="<?php echo $_SESSION['name'].' '.$_SESSION['lastname'];?>">
         <textarea name="comment" id="" placeholder="comment here ... "></textarea>
         <input type="submit" value="submit">
     </div>
