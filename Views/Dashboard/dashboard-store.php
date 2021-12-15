@@ -118,7 +118,7 @@ $user = $result->fetch(PDO::FETCH_ASSOC);
         </div>
         <center>
           <a href="#"><button>Products</button></a>
-          <a href="http://localhost/Cliptec/Views/Dashboard/dashboard-orders.php"><button>Orders</button></a>
+          <a href="./dashboard-orders.php"><button>Orders</button></a>
         </center>
       </div>
 
