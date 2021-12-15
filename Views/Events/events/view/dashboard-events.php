@@ -64,6 +64,9 @@ $listecarte=$carte->affichercarte();
             <a href="" class="app-sidebar-link active">
                 <span class="material-icons">confirmation_number</span>
             </a>
+            <a href="../../../Tickets/index.php" class="app-sidebar-link">
+          <span class="material-icons">book_online</span>
+        </a>
             <a href="../../../Index/IndexC.php" class="app-sidebar-link">
                 <span class="material-icons">keyboard_return</span>
             </a>

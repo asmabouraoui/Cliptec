@@ -1,6 +1,6 @@
 <?php
 include_once('../../Controllers/Forum/questionC.php');
-
+session_start();
 
 $questionC = new QuestionC();
 $listeQuestions = $questionC->afficher_all_questions();
@@ -41,7 +41,7 @@ $listecomment = $commentC->afficher_all_comment();
               </svg>
             </button>
             <button class="profile-btn" style="pointer-events: none;">
-              <span>Name here</span>
+              <span><?php echo $_SESSION['name'].' '.$_SESSION['lastname']; ?></span>
             </button>
           </div>
         </div>
@@ -62,6 +62,9 @@ $listecomment = $commentC->afficher_all_comment();
             <a href="../Events/events/view/dashboard-events.php" class="app-sidebar-link">
                 <span class="material-icons">confirmation_number</span>
             </a>
+            <a href="../Tickets/index.php" class="app-sidebar-link">
+          <span class="material-icons">book_online</span>
+        </a>
             <a href="../Index/indexC.php" class="app-sidebar-link">
                 <span class="material-icons">keyboard_return</span>
             </a>

@@ -57,24 +57,27 @@ $user = $result->fetch(PDO::FETCH_ASSOC);
     </div>
     <div class="app-content">
       <div class="app-sidebar">
-        <a href="dashboard-main.php" class="app-sidebar-link">
-          <span class="material-icons">home</span>
+      <a href="./dashboard-main.php" class="app-sidebar-link">
+                <span class="material-icons">home</span>
+            </a>
+            <a href="./dashboard-users.php" class="app-sidebar-link">
+                <span class="material-icons">people</span>
+            </a>
+            <a href="../forum/dashboard-forum.php" class="app-sidebar-link">
+                <span class="material-icons">forum</span>
+            </a>
+            <a href="#" class="app-sidebar-link active">
+                <span class="material-icons">shopping_cart</span>
+            </a>
+            <a href="../Events/events/view/dashboard-events.php" class="app-sidebar-link">
+                <span class="material-icons">confirmation_number</span>
+            </a>
+            <a href="../Tickets/index.php" class="app-sidebar-link">
+          <span class="material-icons">book_online</span>
         </a>
-        <a href="dashboard-users.php" class="app-sidebar-link">
-          <span class="material-icons">people</span>
-        </a>
-        <a href="../forum/dashboard-forum.php" class="app-sidebar-link">
-          <span class="material-icons">forum</span>
-        </a>
-        <a href="#" class="app-sidebar-link active">
-          <span class="material-icons">shopping_cart</span>
-        </a>
-        <a href="../Events/events/view/dashboard-events.php" class="app-sidebar-link">
-          <span class="material-icons">confirmation_number</span>
-        </a>
-        <a href="./indexC.php" class="app-sidebar-link">
-          <span class="material-icons">keyboard_return</span>
-        </a>
+            <a href="../Index/indexC.php" class="app-sidebar-link">
+                <span class="material-icons">keyboard_return</span>
+            </a>
       </div>
       <div class="projects-section">
         <div class="projects-section-header">
