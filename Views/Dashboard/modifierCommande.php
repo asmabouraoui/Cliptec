@@ -9,34 +9,28 @@ $commande = null;
 
 // create an instance of the controller
 $commandeC = new CommandeC();
+$temp = $commandeC->recuperercommande(($_GET['idCommande']));
 if (
-    isset($_POST["statusCommande"]) &&
-    isset($_POST["prixCommande"]) &&
-    isset($_POST["dateCommande"])
+    isset($_POST["statusCommande"])
 ) {
     if (
-        !empty($_POST['statusCommande']) &&
-        !empty($_POST["prixCommande"]) &&
-        !empty($_POST["dateCommande"]) &&
-        is_numeric($_POST['prixCommande'])
+        !empty($_POST['statusCommande'])
     ) {
         $commande = new Commande(
-            $commande->first_name,
-            $commande->last_name,
-            $commande->email,
-            $commande->adress,
-            $commande->adress2,
-            $commande->country,
-            $commande->state,
-            $commande->zipcode,
-            $commande->total_price,
-            $_POST['statusCommande'],
+            $temp['first_name'],
+            $temp['last_name'],
+            $temp['email'],
+            $temp['address'],
+            $temp['address2'],
+            $temp['country'],
+            $temp['state'],
+            $temp['zipcode'],
+            $temp['total_price'],
+            $_POST['statusCommande']
         );
         $commandeC->modifiercommande($commande, $_GET["idCommande"]);
-        header('Location:commande.php');
-    } elseif (!is_numeric($_POST['prixCommande']))
-        $error = "Please enter a valid price";
-    else
+        header('Location:dashboard-orders.php');
+    } else
         $error = "Missing information";
 }
 ?>
@@ -62,7 +56,7 @@ if (
         $commande = $commandeC->recuperercommande($_GET['idCommande']);
     ?>
 
-        <form action="" method="POST">
+        <form method="POST">
             <table border="1" align="center">
                 <select name="statusCommande" class="feedback-input">
                     <option value="Pending">Pending</option>

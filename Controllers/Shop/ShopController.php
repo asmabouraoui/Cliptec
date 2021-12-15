@@ -63,7 +63,7 @@ class CommandeC
     }
     function recuperercommande($idCommande)
     {
-        $sql = "SELECT * from commande where idCommande=$idCommande";
+        $sql = "SELECT * from orders where id=$idCommande";
         $db = config::getConnexion();
         try {
             $query = $db->prepare($sql);
