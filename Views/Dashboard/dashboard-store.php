@@ -63,7 +63,7 @@ $user = $result->fetch(PDO::FETCH_ASSOC);
         <a href="dashboard-users.php" class="app-sidebar-link">
           <span class="material-icons">people</span>
         </a>
-        <a href="" class="app-sidebar-link">
+        <a href="../forum/dashboard-forum.php" class="app-sidebar-link">
           <span class="material-icons">forum</span>
         </a>
         <a href="#" class="app-sidebar-link active">
@@ -71,7 +71,7 @@ $user = $result->fetch(PDO::FETCH_ASSOC);
         </a>
         <a href="../Events/events/view/dashboard-events.php" class="app-sidebar-link">
           <span class="material-icons">confirmation_number</span>
-        </a><br><br><br><br><br><br><br>
+        </a>
         <a href="./indexC.php" class="app-sidebar-link">
           <span class="material-icons">keyboard_return</span>
         </a>
