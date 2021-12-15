@@ -1,5 +1,8 @@
 <?php
 include_once '../../config.php';
+include_once '../../Models\Client.php';
+include_once '../../Controllers/Profile/ClientC.php';
+session_start();
 $sql = "SELECT * from products";
 $db = config::getConnexion();
 $req = $db->prepare($sql);
@@ -11,7 +14,12 @@ try {
 }
 $products = $req->fetchAll(PDO::FETCH_ASSOC);
 $total_products = $req->rowCount();
-$product
+$ClientC = new ClientC();
+
+$result = $ClientC->getUserInformation($_SESSION['CIN']);
+global $user;
+
+$user = $result->fetch(PDO::FETCH_ASSOC);
 ?>
 
 
@@ -43,7 +51,7 @@ $product
           </svg>
         </button>
         <button class="profile-btn" style="pointer-events: none;">
-          <span>Amrou Ghribi</span>
+          <span><?php echo $user['NAME'].' '.$user['Lastname']; ?></span>
         </button>
       </div>
     </div>
@@ -56,8 +64,8 @@ $product
           <span class="material-icons">people</span>
         </a>
         <a href="" class="app-sidebar-link">
-                <span class="material-icons">forum</span>
-            </a>
+          <span class="material-icons">forum</span>
+        </a>
         <a href="#" class="app-sidebar-link active">
           <span class="material-icons">shopping_cart</span>
         </a>
@@ -107,12 +115,13 @@ $product
               </div>
             </div>
           <?php endforeach; ?>
-        </div><center>
-        <a href="#"><button>Products</button></a>
-        <a href="http://localhost/Cliptec/Views/Dashboard/dashboard-orders.php"><button>Orders</button></a>
-      </center>
+        </div>
+        <center>
+          <a href="#"><button>Products</button></a>
+          <a href="http://localhost/Cliptec/Views/Dashboard/dashboard-orders.php"><button>Orders</button></a>
+        </center>
       </div>
-      
+
 
     </div>
 

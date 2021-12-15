@@ -1,8 +1,17 @@
 <?php
 include '../../Controllers/Shop/ShopController.php';
+include_once '../../Models\Client.php';
+include_once '../../Controllers/Profile/ClientC.php';
+session_start();
 $commandeC = new CommandeC();
 $listeCommandes = $commandeC->affichercommandes();
 $total_orders = $listeCommandes->rowCount();
+$ClientC = new ClientC();
+
+$result = $ClientC->getUserInformation($_SESSION['CIN']);
+global $user;
+
+$user = $result->fetch(PDO::FETCH_ASSOC);
 ?>
 
 
@@ -34,7 +43,7 @@ $total_orders = $listeCommandes->rowCount();
           </svg>
         </button>
         <button class="profile-btn" style="pointer-events: none;">
-          <span>Amrou Ghribi</span>
+          <span><?php echo $user['NAME'].' '.$user['Lastname']; ?></span>
         </button>
       </div>
     </div>
