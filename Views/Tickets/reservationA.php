@@ -23,9 +23,11 @@ $listeTrips = $tripC->afficherTrips();
         <img id="logo" src="./assets/images/logo white bg.png" alt="easyrocket logo">
 
         <ul class="list">
+        <li><a href="../Home/index.php" id="selectedtab">Home</a></li>
+
             <li><a href="reservation.php" id="selectedtab">Trips</a></li>
-            <li><a href="#">forum</a></li>
-            <li><a href="#">shop</a></li>
+            <li><a href="../Forum/Forum.php">forum</a></li>
+            <li><a href="../Shop/index.php">shop</a></li>
         </ul>
         <?php $i = 1 ;?>
         <?php foreach($listeTrips as $trips) {  ?>
@@ -37,12 +39,9 @@ $listeTrips = $tripC->afficherTrips();
              '>
         
             <div class="minicontainer">
-                <div class="box">
-                <img class= "box" src="images/<?php echo $trips['image']; ?>" > 
-                </div>
+                <div class="box"></div>
                 <p id="title"><?php echo $trips['nomt']; ?></p>
                 <p id="under"><?php echo $trips['desct']; ?></p>
-                <p id="under" style="margin-top: 40px;font-size:22px;"><?php echo $trips['prix']; ?>$</p>
                 <button id="btn" type="button"><a href="cr.php">Reservation</a></button>
             </div>
             
@@ -58,4 +57,3 @@ $listeTrips = $tripC->afficherTrips();
         <img id ="circles" src="./assets/images/circles.png" alt="circles">
 </body>
 </html>
-

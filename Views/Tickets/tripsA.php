@@ -3,13 +3,9 @@
 		//private $idu=null;
 		private $nomt=null;
 		private $desct=null;
-		private $prix=0;
-		private $image=null;
-
-		function __construct(/*$idu, */$nomt, $desct,$prix,$image){
+		
+		function __construct(/*$idu, */$nomt, $desct){
 			//$this->idu=$idu;
-			$this->prix=$prix;
-			$this->image=$image;
 			$this->nomt=$nomt;
 			$this->desct=$desct;
 		}
@@ -22,12 +18,6 @@
 		function getDesc(){
 			return $this->desct;
 		}
-		function getPrix(){
-			return $this->prix;
-		}
-		function getImage(){
-			return $this->image;
-		}
         //////////
 
 
@@ -36,13 +26,6 @@
 		}
 		function setDesc(string $desct){
 			$this->desct=$desct;
-			
-		}
-		function setPrix(float $prix){
-			$this->prix=$prix;
-		}
-		function setImage(string $image){
-			$this->image=$image;
 		}
 	}
 

@@ -4,12 +4,9 @@ require_once 'trips.php';
 include 'tripsController.php';
 $tripsC = new tripsC();
 $test = true;
-if (isset ($_POST['Nom'])  && isset($_POST['description']) && isset($_POST['prix']) && isset($_POST['image'])) 
-{
+if (isset ($_POST['Nom'])  && isset($_POST['description'])) {
   $Tname = $_POST['Nom'];
   $Descp = $_POST['description'];
-  $prix = $_POST['prix'];
-  $image =$_POST['image'];
   if (empty($Tname)){
     echo "<div style='text-align:right;font-size:12px;color:white;background-color:red;'>";
 				echo   "fullname  is empry ! <br>" ;
@@ -28,9 +25,7 @@ if (empty($Descp)){
 if ($test==true){
     $trips = new trips(
         $Tname,
-        $Descp,
-        $prix,
-        $image
+        $Descp
         //kamil b9iyit les parametre mte3 constructeur fil class utilisateur 7at fil constructeur 8 parametre w lina ta3ti fih ken fi 4
         //ok
     );
@@ -75,24 +70,10 @@ else
         <label for="ville">Description</label><br>
         <input class="input2"  type="text" name="description" id="description"><br> 
         </div>
-        <div> 
-
-        <label for="prix">Prix</label><br>
-        <input class="input2"  type="number" step="0.01" name="prix" id="prix"><br> 
-
-        </div>
-        
-        <div >
-
-        <label for="image">Load Image</label><br>
-        <input class="input2" type="file" name="image" id="image"><br>
-
-        </div>
-        
         
         
 
-        <br>
+            <br>
         <input class="input2"  type="submit" value="Continue" href="tripsBackend.php">
     </form>
     

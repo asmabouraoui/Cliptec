@@ -30,16 +30,14 @@
 			}
 		}
 		function ajouterTrips($trips){
-			$sql="INSERT INTO trips (nomt, desct,prix,image) 
-			VALUES (:nomt,:desct,:prix,:image)";
+			$sql="INSERT INTO trips (nomt, desct) 
+			VALUES (:nomt,:desct)";
 			$db = config::getConnexion();
 			try{
 				$query = $db->prepare($sql);
 				$query->execute([
 					'nomt' => $trips->getNom(),
-					'desct' => $trips->getDesc(),
-					'prix' => $trips->getPrix(),
-					'image' =>$trips->getImage()
+					'desct' => $trips->getDesc()
 				]);			
 			}
 			catch (Exception $e){
