@@ -1,7 +1,7 @@
 <?php
 $dsn = 'mysql:host=localhost;dbname=cliptec';
-$username = 'admin';
-$password = 'admin';
+$username = 'root';
+$password = '';
 $options = [];
 try {
 $connection = new PDO($dsn, $username, $password, $options);

@@ -1,6 +1,6 @@
 <?php
 require 'db.php';
-
+session_start();
 $sql = 'SELECT * FROM billetterie WHERE confirmation!=:conf';
 $sql1 = 'SELECT * FROM billetterie WHERE confirmation=:conf';
 $s = 'SELECT * FROM billetterie';
@@ -47,35 +47,38 @@ endforeach;
               </svg>
             </button>
             <button class="profile-btn" style="pointer-events: none;">
-              <span>Karim</span>
+              <span><?php echo $_SESSION['name'].' '.$_SESSION['lastname']; ?></span>
             </button>
           </div>
         </div>
         <div class="app-content">
           <div class="app-sidebar">
-          <a href="" class="app-sidebar-link active">
+          <a href="../Dashboard/dashboard-main.php" class="app-sidebar-link">
                 <span class="material-icons">home</span>
             </a>
             <a href="../Dashboard/dashboard-users.php" class="app-sidebar-link">
                 <span class="material-icons">people</span>
             </a>
+            <a href="../forum/dashboard-forum.php" class="app-sidebar-link">
+                <span class="material-icons">forum</span>
+            </a>
             <a href="../Dashboard/dashboard-store.php" class="app-sidebar-link">
                 <span class="material-icons">shopping_cart</span>
             </a>
-            <a href="tripsbackend.php" class="app-sidebar-link">
+            <a href="../Events/events/view/dashboard-events.php" class="app-sidebar-link">
                 <span class="material-icons">confirmation_number</span>
             </a>
-            <br><br><br><br><br><br><br><br><br><br><br>
+            <a href="#" class="app-sidebar-link active">
+          <span class="material-icons">book_online</span>
+        </a>
             <a href="../Index/indexC.php" class="app-sidebar-link">
                 <span class="material-icons">keyboard_return</span>
-            <a href="tripsbackend.php" class="app-sidebar-link ">
-                <span class="material-icons">view_list</span>
             </a>
           </div>
           <div class="projects-section">
             <div class="projects-section-header">
               <a href="create.php">ADD Reservation</a>
-              <p class="time">November, 11</p>
+              <p class="time"><?php echo date('d F Y');?></p>
             </div>
             <div class="projects-section-line">
               <div class="projects-status">

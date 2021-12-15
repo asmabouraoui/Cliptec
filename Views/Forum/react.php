@@ -51,8 +51,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <header>
         <img id="easyrocket" src="../../assets/images/logo black bg-trimmy.png" alt="" srcset="" onclick="goToIndexC()">
         <ul>
-            <a class="list" href="../Forum/Forum.php"><li>Forum</li></a>
-            <a class="list" href="#"><li>Events</li></a>
+            <a class="list" href="../Forum/Forum.php"><li>Home</li></a>
+            <a class="list" href="../Events/events/frontindex.html"><li>Events</li></a>
             <a class="list" href="../Shop/index.php"><li>Shop</li></a>
             <?php 
                 if ($_SESSION['role']=='Admin')

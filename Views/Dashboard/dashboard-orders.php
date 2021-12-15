@@ -1,8 +1,17 @@
 <?php
 include '../../Controllers/Shop/ShopController.php';
+include_once '../../Models\Client.php';
+include_once '../../Controllers/Profile/ClientC.php';
+session_start();
 $commandeC = new CommandeC();
 $listeCommandes = $commandeC->affichercommandes();
 $total_orders = $listeCommandes->rowCount();
+$ClientC = new ClientC();
+
+$result = $ClientC->getUserInformation($_SESSION['CIN']);
+global $user;
+
+$user = $result->fetch(PDO::FETCH_ASSOC);
 ?>
 
 
@@ -34,7 +43,7 @@ $total_orders = $listeCommandes->rowCount();
           </svg>
         </button>
         <button class="profile-btn" style="pointer-events: none;">
-          <span>Amrou Ghribi</span>
+          <span><?php echo $user['NAME'].' '.$user['Lastname']; ?></span>
         </button>
       </div>
     </div>
@@ -51,7 +60,10 @@ $total_orders = $listeCommandes->rowCount();
         </a>
         <a href="dashboard-events.php" class="app-sidebar-link">
           <span class="material-icons">confirmation_number</span>
-        </a><br><br><br><br><br><br><br><br><br><br><br>
+        </a>
+        <a href="../Tickets/index.php" class="app-sidebar-link">
+          <span class="material-icons">book_online</span>
+        </a>
         <a href="./indexC.php" class="app-sidebar-link">
           <span class="material-icons">keyboard_return</span>
         </a>
@@ -125,7 +137,7 @@ $total_orders = $listeCommandes->rowCount();
 		</table>
 	</div>
       <center>
-        <a href="http://localhost/Cliptec/Views/Dashboard/dashboard-store.php"><button>Products</button></a>
+        <a href="./dashboard-store.php"><button>Products</button></a>
         <a href="#"><button>Orders</button></a>
       </center>
 
